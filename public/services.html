@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Kaos Tech Web Development Solutions</title>
+    <meta name="description" content="Custom web development, e-commerce solutions, website maintenance, and technical consulting services for individuals and small businesses.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-text">Kaos Tech</span>
+                <span class="tagline">Turning Digital Chaos into Functional Websites</span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/services" class="nav-link active">Services</a>
+                <a href="/portfolio" class="nav-link">Portfolio</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/contact" class="nav-link cta-button">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Build From <span class="highlight">Scratch</span>, Not From Templates</h1>
+                <p class="hero-subtitle">Custom web solutions designed for performance, scalability, and your unique business needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-detail">
+        <div class="container">
+            <div class="services-grid" id="services-container">
+                <!-- Loaded dynamically from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="service-process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Service Process</h2>
+                <p>How we ensure your project succeeds</p>
+            </div>
+            
+            <div class="process-tabs">
+                <div class="process-tab active" data-tab="consultation">
+                    <h4>1. Consultation</h4>
+                    <p>Free initial discussion</p>
+                </div>
+                <div class="process-tab" data-tab="proposal">
+                    <h4>2. Proposal</h4>
+                    <p>Detailed plan & quote</p>
+                </div>
+                <div class="process-tab" data-tab="development">
+                    <h4>3. Development</h4>
+                    <p>Build with weekly updates</p>
+                </div>
+                <div class="process-tab" data-tab="delivery">
+                    <h4>4. Delivery</h4>
+                    <p>Launch & training</p>
+                </div>
+            </div>
+            
+            <div class="process-content">
+                <div id="consultation-content" class="tab-content active">
+                    <h3>Free Initial Consultation</h3>
+                    <p>We start every project with a no-obligation conversation to understand your goals, challenges, and requirements. We'll discuss:</p>
+                    <ul>
+                        <li>Your business objectives and target audience</li>
+                        <li>Technical requirements and constraints</li>
+                        <li>Timeline and budget considerations</li>
+                        <li>Potential solutions and approaches</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-primary">Schedule Your Consultation</a>
+                </div>
+                
+                <div id="proposal-content" class="tab-content">
+                    <h3>Detailed Proposal & Planning</h3>
+                    <p>Within 48 hours, you'll receive a comprehensive proposal including:</p>
+                    <ul>
+                        <li>Detailed project scope and deliverables</li>
+                        <li>Clear timeline with milestones</li>
+                        <li>Transparent pricing breakdown</li>
+                        <li>Technology stack recommendations</li>
+                        <li>Next steps and project initiation</li>
+                    </ul>
+                </div>
+                
+                <div id="development-content" class="tab-content">
+                    <h3>Development Phase</h3>
+                    <p>During development, you'll receive:</p>
+                    <ul>
+                        <li>Weekly progress updates and demos</li>
+                        <li>Access to a development environment</li>
+                        <li>Regular opportunities for feedback</li>
+                        <li>Quality assurance testing throughout</li>
+                        <li>Documentation as we build</li>
+                    </ul>
+                </div>
+                
+                <div id="delivery-content" class="tab-content">
+                    <h3>Delivery & Launch</h3>
+                    <p>We handle the entire launch process and ensure you're comfortable with your new website:</p>
+                    <ul>
+                        <li>Final testing and optimization</li>
+                        <li>Smooth deployment to production</li>
+                        <li>Training session on managing your site</li>
+                        <li>Post-launch support period</li>
+                        <li>Documentation and maintenance recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <!-- Loaded dynamically from JSON -->
+    </footer>
+
+    <!-- JS -->
+    <script src="/js/main.js"></script>
+    <script src="/js/components.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load services dynamically
+            loadJSONContent('/content/services.json', 'services-container', renderServices);
+
+            // Load footer dynamically
+            loadJSONContent('/content/footer.json', 'footer', renderFooter);
+
+            // Set current year
+            const yearEl = document.getElementById('current-year');
+            if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // Process tabs
+            document.querySelectorAll('.process-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+
+                    document.querySelectorAll('.process-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+
+                    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

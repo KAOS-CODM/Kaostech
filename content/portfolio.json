@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "Startup Landing Page",
+        "description": "Designed a responsive landing page for a tech startup to increase conversions.",
+        "category": "business",
+        "technologies": ["HTML", "CSS", "JavaScript"],
+        "image": "/assets/portfolio/startup-landing.jpg",
+        "liveUrl": "https://example.com/startup",
+        "clientName": "TechNova",
+        "projectDate": "2025-08-15",
+        "timeline": "4 weeks",
+        "challenge": "Startup needed a high-converting landing page quickly.",
+        "solution": "Created a modern responsive design with optimized CTAs.",
+        "results": "Conversion rate increased by 30%",
+        "features": ["Responsive design", "SEO optimized", "Fast load times"]
+    },
+    {
+        "id": 2,
+        "title": "E-commerce Store Redesign",
+        "description": "Revamped an existing e-commerce store for a fashion brand.",
+        "category": "redesign",
+        "technologies": ["React", "CSS", "Stripe API"],
+        "image": "/assets/portfolio/fashion-store.jpg",
+        "liveUrl": "https://example.com/fashion",
+        "clientName": "StyleBoutique",
+        "projectDate": "2025-09-20",
+        "timeline": "6 weeks",
+        "challenge": "Old design was not mobile-friendly and conversions were low.",
+        "solution": "Redesigned UI/UX, integrated payment gateway, and improved navigation.",
+        "results": "Sales increased by 45%",
+        "features": ["Mobile-first design", "Integrated checkout", "Optimized product pages"]
+    },
+    {
+        "id": 3,
+        "title": "Web App for Task Management",
+        "description": "Developed a custom task management web application for small teams.",
+        "category": "webapp",
+        "technologies": ["Vue.js", "Node.js", "MongoDB"],
+        "image": "/assets/portfolio/task-manager.jpg",
+        "liveUrl": "https://example.com/tasks",
+        "clientName": "Productive Inc.",
+        "projectDate": "2025-07-10",
+        "timeline": "8 weeks",
+        "challenge": "Client needed a collaborative web app for remote teams.",
+        "solution": "Built real-time task tracking and notification system.",
+        "results": "Improved team productivity by 25%",
+        "features": ["Real-time updates", "User authentication", "Drag & drop tasks"]
+    }
+]

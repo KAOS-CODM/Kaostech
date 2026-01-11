@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kaos Tech - Turning Digital Chaos into Functional Websites. Professional web development services for individuals and small businesses.">
+
+    <title>Kaos Tech | Turning Digital Chaos into Functional Websites</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Kaos Tech",
+        "description": "Turning Digital Chaos into Functional Websites",
+        "url": "https://kaostech.com",
+        "logo": "https://kaostech.com/assets/logo.svg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "City",
+            "addressRegion": "State",
+            "addressCountry": "Country"
+        },
+        "serviceType": "Web Development",
+        "areaServed": ["Worldwide"],
+        "priceRange": "$$"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-text">Kaos Tech</span>
+                <span class="tagline">Turning Digital Chaos into Functional Websites</span>
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-menu">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/services" class="nav-link">Services</a>
+                <a href="/portfolio" class="nav-link">Portfolio</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/contact" class="nav-link cta-button">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Where <span class="highlight">Chaos</span> Meets Clean Code</h1>
+                <p class="hero-subtitle">Professional web development that transforms your digital vision into functional, high-performance websites.</p>
+                <div class="hero-actions">
+                    <a href="/contact" class="btn btn-primary">Start Your Project</a>
+                    <a href="/portfolio" class="btn btn-secondary">View Our Work</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-snippet">
+                    <pre><code class="language-html">
+&lt;!-- Turning chaos into clarity --&gt;
+&lt;div class="organized-chaos"&gt;
+    &lt;h1&gt;Your Vision&lt;/h1&gt;
+    &lt;p&gt;+ Our Expertise&lt;/p&gt;
+    &lt;div class="result"&gt;
+        = Perfect Website
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Development Services</h2>
+                <p>Custom solutions built from scratch for optimal performance</p>
+            </div>
+
+            <div class="services-grid" id="services-container">
+                <!-- Loaded dynamically from JSON -->
+            </div>
+
+            <div class="text-center">
+                <a href="/services" class="btn btn-outline">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section class="portfolio-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <p>Real solutions for real businesses</p>
+            </div>
+
+            <div class="portfolio-grid" id="portfolio-container">
+                <!-- Loaded dynamically from JSON -->
+            </div>
+
+            <div class="text-center">
+                <a href="/portfolio" class="btn btn-primary">See Full Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Digital Presence?</h2>
+            <p>Let's discuss how we can turn your digital chaos into a functional, high-performing website.</p>
+            <a href="/contact" class="btn btn-large">Get Your Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer (Dynamic via JSON) -->
+    <footer id="footer"></footer>
+
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+    <script src="/js/components.js"></script>
+</body>
+</html>

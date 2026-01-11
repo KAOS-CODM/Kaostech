@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Kaos Tech Web Development Projects</title>
+    <meta name="description" content="See our recent web development projects for small businesses, startups, and individuals. Real solutions with real results.">
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/portfolio.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-text">Kaos Tech</span>
+                <span class="tagline">Turning Digital Chaos into Functional Websites</span>
+            </a>
+            
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/services" class="nav-link">Services</a>
+                <a href="/portfolio" class="nav-link active">Portfolio</a>
+                <a href="/blog" class="nav-link">Blog</a>
+                <a href="/contact" class="nav-link cta-button">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Portfolio Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Real Projects, <span class="highlight">Real Results</span></h1>
+                <p class="hero-subtitle">See how we've helped businesses transform their digital presence with clean, functional websites.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Filters -->
+    <section class="portfolio-filters">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="business">Business Websites</button>
+                <button class="filter-btn" data-filter="webapp">Web Applications</button>
+                <button class="filter-btn" data-filter="redesign">Redesigns</button>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="portfolio-search" placeholder="Search projects...">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-grid-section">
+        <div class="container">
+            <div class="portfolio-container" id="portfolio-items">
+                <!-- Loaded from JSON -->
+            </div>
+            
+            <div class="portfolio-stats">
+                <div class="stat">
+                    <span class="stat-number" id="total-projects">0</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="client-satisfaction">100%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="avg-timeline">6</span>
+                    <span class="stat-label">Avg. Weeks to Launch</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Highlight -->
+    <section class="case-study">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Case Study</h2>
+                <p>In-depth look at a recent project</p>
+            </div>
+            
+            <div class="case-study-content" id="featured-case-study">
+                <!-- Loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="portfolio-testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Feedback</h2>
+                <p>What our clients say about working with us</p>
+            </div>
+            
+            <div class="testimonials-slider" id="testimonials-container">
+                <!-- Loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Inquiry -->
+    <section class="project-inquiry">
+        <div class="container">
+            <div class="inquiry-content">
+                <h2>Have a Similar Project?</h2>
+                <p>Let's discuss how we can create a custom solution for your business.</p>
+                <a href="/contact" class="btn btn-large">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <!-- Footer is consistent with index and ser -->
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/portfolio.js"></script>
+</body>
+</html>

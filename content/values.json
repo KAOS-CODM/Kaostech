@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Client-First Collaboration",
+    "description": "We respect your input and work alongside you. Your vision drives our development process.",
+    "icon": "collaboration",
+    "color": "#2563eb"
+  },
+  {
+    "title": "Professional Guidance",
+    "description": "We prevent technical oversights by applying our expertise to your unique requirements.",
+    "icon": "guidance",
+    "color": "#7c3aed"
+  },
+  {
+    "title": "Transparency",
+    "description": "Clear communication about process, pricing, and progress. No hidden fees or surprises.",
+    "icon": "transparency",
+    "color": "#06b6d4"
+  },
+  {
+    "title": "Performance-Focused",
+    "description": "We build maintainable solutions that load fast, work flawlessly, and scale gracefully.",
+    "icon": "performance",
+    "color": "#10b981"
+  },
+  {
+    "title": "Cost-Effective Solutions",
+    "description": "Quality development within reasonable budgets. We maximize value without compromising quality.",
+    "icon": "costeffective",
+    "color": "#f59e0b"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "custom-development",
+    "title": "Custom Web Development",
+    "description": "Bespoke websites built from scratch to perfectly match your requirements and brand identity.",
+    "icon": "code",
+    "color": "#2563eb",
+    "features": ["Responsive Design", "Clean Code", "Performance Optimized", "SEO Ready"],
+    "startingPrice": "$2,500",
+    "details": "We build custom solutions using modern technologies, ensuring your website is fast, secure, and scalable."
+  },
+  {
+    "id": "ecommerce",
+    "title": "E-commerce Solutions",
+    "description": "Complete online store setup with secure payment processing and inventory management.",
+    "icon": "shopping-cart",
+    "color": "#7c3aed",
+    "features": ["Payment Integration", "Product Management", "Secure Checkout", "Mobile Optimized"],
+    "startingPrice": "$3,500",
+    "details": "Custom e-commerce solutions that drive sales and provide excellent user experience."
+  },
+  {
+    "id": "website-maintenance",
+    "title": "Website Maintenance",
+    "description": "Ongoing support, updates, and optimizations to keep your website running smoothly.",
+    "icon": "shield",
+    "color": "#10b981",
+    "features": ["Security Updates", "Performance Monitoring", "Backup Solutions", "Technical Support"],
+    "startingPrice": "$150/month",
+    "details": "Regular maintenance packages to ensure your website remains secure and up-to-date."
+  }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "title": "E-Commerce Redesign",
+        "slug": "ecommerce-redesign",
+        "clientName": "ShopSmart",
+        "category": "ecommerce",
+        "metrics": { "impact": "85%", "timeline": "5 weeks", "satisfaction": "98%" },
+        "challenge": "The client had low conversion rates...",
+        "solution": "We redesigned the site for mobile-first experience...",
+        "results": "Conversion increased by 40%..."
+    },
+    {
+        "title": "Business Website Launch",
+        "slug": "business-website",
+        "clientName": "FinCorp",
+        "category": "business",
+        "metrics": { "impact": "90%", "timeline": "6 weeks", "satisfaction": "95%" },
+        "challenge": "Outdated site design and poor SEO...",
+        "solution": "Modern design and SEO optimization...",
+        "results": "Organic traffic doubled..."
+    },
+    {
+        "title": "Web Application Development",
+        "slug": "webapp-development",
+        "clientName": "TaskFlow",
+        "category": "webapp",
+        "metrics": { "impact": "80%", "timeline": "8 weeks", "satisfaction": "97%" },
+        "challenge": "Manual workflow was slowing operations...",
+        "solution": "We built a full-featured web app to automate tasks...",
+        "results": "Efficiency improved by 60%..."
+    }
+]

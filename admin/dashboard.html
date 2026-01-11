@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kaos Tech Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    body {
+      background: #0f172a;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #111827;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #374151;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      background: #3b82f6;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #2563eb;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <h2>Add Blog</h2>
+    <form id="addBlogForm">
+      <div class="form-group">
+        <input id="blogTitle" placeholder="Blog Title" required />
+      </div>
+      <div class="form-group">
+        <textarea id="blogContent" placeholder="Blog Content" rows="4" required></textarea>
+      </div>
+      <button type="submit">Add Blog</button>
+    </form>
+
+    <h2>Existing Blogs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="blogTable">
+        <!-- Blogs will load here -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/admin/dashboard.js"></script>
+</body>
+</html>

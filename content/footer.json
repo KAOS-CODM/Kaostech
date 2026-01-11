@@ -1,0 +1,33 @@
+{
+  "brand": {
+    "name": "Kaos Tech",
+    "tagline": "Turning Digital Chaos into Functional Websites",
+    "mission": "Making professionally built websites accessible to individuals and small businesses."
+  },
+  "links": [
+    { "title": "Home", "url": "/" },
+    { "title": "About", "url": "/about" },
+    { "title": "Services", "url": "/services" },
+    { "title": "Portfolio", "url": "/portfolio" },
+    { "title": "Blog", "url": "/blog" },
+    { "title": "Contact", "url": "/contact" }
+  ],
+  "services": [
+    { "title": "Custom Web Development", "url": "/services#custom" },
+    { "title": "E-commerce Solutions", "url": "/services#ecommerce" },
+    { "title": "Website Maintenance", "url": "/services#maintenance" },
+    { "title": "Technical Consulting", "url": "/services#consulting" }
+  ],
+  "contact": {
+    "email": "hello@kaostech.com",
+    "responseTime": "Response within 24 hours"
+  },
+  "newsletter": {
+    "placeholder": "Your email",
+    "buttonText": "Subscribe"
+  },
+  "legal": [
+    { "title": "Privacy Policy", "url": "/privacy" },
+    { "title": "Terms & Conditions", "url": "/terms" }
+  ]
+}

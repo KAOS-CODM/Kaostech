@@ -1,0 +1,178 @@
+.contact-options {
+    padding: 4rem 0;
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.contact-icon {
+    margin-bottom: 1rem;
+}
+.contact-card h3 {
+    margin-bottom: 0.5rem;
+}
+.contact-card p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+.contact-card ul.service-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+.contact-card ul.service-features li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+.contact-card ul.service-features li::before {
+    content: "✔️";
+    margin-right: 0.5rem;
+}
+.contact-card button {
+    cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+.modal-content ul li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Quote Form Section */
+.quote-form-section {
+    padding: 5rem 0;
+    background: #f9fafb;
+}
+
+.form-container {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #111827;
+}
+.form-header p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d1d5db;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fefefe;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+}
+
+.form-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.form-footer .btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-footer .btn:hover {
+    background-color: #1d4ed8;
+}
+
+.form-note p {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+/* Adjust textarea placeholder */
+textarea::placeholder {
+    color: #9ca3af;
+    font-style: italic;
+}

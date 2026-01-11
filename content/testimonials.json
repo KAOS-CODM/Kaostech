@@ -1,0 +1,26 @@
+[
+    {
+        "clientName": "Jane Doe",
+        "company": "TechNova",
+        "content": "Kaos Tech delivered an amazing landing page. Conversions skyrocketed!",
+        "featured": true
+    },
+    {
+        "clientName": "John Smith",
+        "company": "StyleBoutique",
+        "content": "The redesign of our store was incredible. Our online sales have never been better!",
+        "featured": true
+    },
+    {
+        "clientName": "Emily Wong",
+        "company": "Productive Inc.",
+        "content": "The task management app is exactly what we needed for remote collaboration.",
+        "featured": true
+    },
+    {
+        "clientName": "Alex Johnson",
+        "company": "Startup Hub",
+        "content": "Professional and timely delivery. Very happy with the results.",
+        "featured": false
+    }
+]

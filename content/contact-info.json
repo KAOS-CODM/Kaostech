@@ -1,0 +1,11 @@
+{
+  "company": "Kaos Tech",
+  "address": ["123 Digital Avenue", "Tech City, TC 10001", "United States"],
+  "email": "hello@kaostech.com",
+  "phone": "+1 (555) 123-4567",
+  "hours": "Monday-Friday, 9am-6pm EST",
+  "mapOverlay": [
+    "Virtual Office - Serving Clients Worldwide",
+    "We work remotely with clients across the globe, providing flexible communication options."
+  ]
+}

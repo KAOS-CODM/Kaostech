@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Kaos Tech Web Development Insights</title>
+    <meta name="description" content="Articles, tutorials, and insights about web development, clean code, and digital strategy from Kaos Tech.">
+
+    <!-- Global styles -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+
+    <!-- Blog-only styles (isolated) -->
+    <link rel="stylesheet" href="/css/blog.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap">
+
+    <!-- Prism.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">
+                <span class="logo-text">Kaos Tech</span>
+                <span class="tagline">Turning Digital Chaos into Functional Websites</span>
+            </a>
+
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <div class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/services" class="nav-link">Services</a>
+                <a href="/portfolio" class="nav-link">Portfolio</a>
+                <a href="/blog" class="nav-link active">Blog</a>
+                <a href="/contact" class="nav-link cta-button">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Web Development <span class="highlight">Insights</span></h1>
+                <p class="hero-subtitle">
+                    Articles, tutorials, and thoughts on clean code, performance, and turning digital chaos into clarity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-layout">
+
+                <!-- Main -->
+                <main class="blog-main">
+
+                    <!-- Featured -->
+                    <div class="featured-post" id="featured-post"></div>
+
+                    <!-- Filters -->
+                    <div class="posts-filters">
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-category="all">All</button>
+                            <button class="filter-tab" data-category="tutorials">Tutorials</button>
+                            <button class="filter-tab" data-category="insights">Insights</button>
+                            <button class="filter-tab" data-category="case-studies">Case Studies</button>
+                            <button class="filter-tab" data-category="industry">Industry</button>
+                        </div>
+
+                        <div class="search-container">
+                            <input type="text" id="blog-search" placeholder="Search articles...">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Posts -->
+                    <div class="posts-grid" id="posts-container"></div>
+
+                    <!-- Pagination -->
+                    <div class="pagination" id="pagination"></div>
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+
+                    <div class="sidebar-widget newsletter-widget">
+                        <h4>Stay Updated</h4>
+                        <p>Get the latest web dev insights in your inbox.</p>
+                        <form class="sidebar-newsletter">
+                            <input type="email" placeholder="Your email" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+
+                    <div class="sidebar-widget categories-widget">
+                        <h4>Categories</h4>
+                        <ul class="categories-list" id="categories-list"></ul>
+                    </div>
+
+                    <div class="sidebar-widget popular-widget">
+                        <h4>Popular Articles</h4>
+                        <div class="popular-posts" id="popular-posts"></div>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Never Miss an Update</h2>
+                <p>Join our newsletter for clean, practical web dev tips.</p>
+                <form class="cta-newsletter" id="cta-newsletter">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="cta-note">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer"></footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/blog.js"></script>
+</body>
+</html>
