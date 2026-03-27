@@ -12,23 +12,85 @@ class BlogManager {
 
     async init() {
         await this.loadBlogData();
-        this.setupEventListeners();
         this.renderFeaturedPost();
         this.renderPosts();
         this.renderCategories();
         this.renderPopularPosts();
-        this.setupNewsletter();
+        this.setupEventListeners();
+        this.setupInfiniteScroll();
     }
 
     async loadBlogData() {
         try {
-            const res = await fetch('/api/blog/posts');
-            if (!res.ok) throw new Error('DB unavailable');
-            this.posts = await res.json();
+            // Fetch Dev.to posts
+            const devRes = await fetch('https://dev.to/api/articles?username=kaoscodm');
+            const devPosts = devRes.ok ? await devRes.json() : [];
+
+            // Fetch Medium posts via RSS to JSON converter
+            // Example: https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@yourusername
+            const mediumRes = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@klasikyemite');
+            const mediumPosts = mediumRes.ok ? (await mediumRes.json()).items : [];
+
+            // Fetch local JSON posts
+            const localRes = await fetch('/content/blog-posts.json');
+            const localPosts = await localRes.json();
+
+            const allPostsMap = new Map();
+
+            // Normalize Dev.to posts
+            devPosts.forEach(p => allPostsMap.set(`dev-${p.id}`, {
+                id: `dev-${p.id}`,
+                title: p.title,
+                slug: p.slug,
+                url: `/blog-post.html?id=dev-${p.id}`,
+                excerpt: p.description || '',
+                content: p.body_html || '',
+                author: p.user?.name || 'Dev.to',
+                publishedAt: p.published_at,
+                category: (p.tag_list && p.tag_list.length) ? p.tag_list[0] : 'dev',
+                tags: p.tag_list || [],
+                featuredImage: p.cover_image || '/assets/blog-placeholder.jpg',
+                readTime: p.reading_time_minutes ? `${p.reading_time_minutes} min read` : '5 min read',
+                source: 'dev'
+            }));
+
+            // Normalize Medium posts
+            mediumPosts.forEach(p => allPostsMap.set(`medium-${p.guid}`, {
+                id: `medium-${p.guid}`,
+                title: p.title,
+                slug: p.guid,
+                url: `/blog-post.html?id=medium-${p.guid}`,
+                excerpt: p.description || '',
+                content: p.content || '',
+                author: p.author || 'Medium',
+                publishedAt: p.pubDate,
+                category: 'medium',
+                tags: [],
+                featuredImage: p.thumbnail || '/assets/blog-placeholder.jpg',
+                readTime: '5 min read',
+                source: 'medium'
+            }));
+
+            // Normalize Local posts
+            localPosts.forEach(p => allPostsMap.set(`local-${p.id}`, {
+                ...p,
+                id: `local-${p.id}`,
+                url: `/blog-post.html?id=local-${p.id}`,
+                source: 'local'
+            }));
+
+            this.posts = Array.from(allPostsMap.values());
+
         } catch (err) {
-            console.warn('Falling back to JSON blog posts');
+            console.warn('⚠️ Blog fetch failed, using local JSON only');
             const fallback = await fetch('/content/blog-posts.json');
-            this.posts = await fallback.json();
+            const localPosts = await fallback.json();
+            this.posts = localPosts.map(p => ({
+                ...p,
+                id: `local-${p.id}`,
+                url: `/blog-post.html?id=local-${p.id}`,
+                source: 'local'
+            }));
         }
 
         this.pickFeaturedPost();
@@ -45,14 +107,14 @@ class BlogManager {
     processCategories() {
         this.categories = { all: { name: 'All Posts', count: this.posts.length } };
         this.posts.forEach(post => {
-            if (!post.category) return;
-            if (!this.categories[post.category]) {
-                this.categories[post.category] = {
-                    name: this.formatCategoryName(post.category),
+            const cat = post.category || 'dev';
+            if (!this.categories[cat]) {
+                this.categories[cat] = {
+                    name: this.formatCategoryName(cat),
                     count: 0
                 };
             }
-            this.categories[post.category].count++;
+            this.categories[cat].count++;
         });
     }
 
@@ -71,6 +133,7 @@ class BlogManager {
             tab.addEventListener('click', e => {
                 this.currentCategory = e.target.dataset.category;
                 this.currentPage = 1;
+
                 document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
                 e.target.classList.add('active');
                 this.renderPosts();
@@ -91,7 +154,7 @@ class BlogManager {
         let posts = [...this.posts];
 
         if (this.currentCategory !== 'all') {
-            posts = posts.filter(p => p.category === this.currentCategory);
+            posts = posts.filter(p => p.category.toLowerCase() === this.currentCategory.toLowerCase());
         }
 
         if (this.searchTerm) {
@@ -107,15 +170,14 @@ class BlogManager {
     renderFeaturedPost() {
         if (!this.featuredPost) return;
         const el = document.getElementById('featured-post');
-
         el.innerHTML = `
-        <a href="/blog/${this.featuredPost.slug}">
+        <a href="blog-post.html?id=${this.featuredPost.id}">
             <div class="featured-image">
-                <img src="${this.featuredPost.featuredImage || '/assets/blog-placeholder.jpg'}">
+                <img src="${this.featuredPost.featuredImage}" alt="${this.featuredPost.title}">
             </div>
             <div class="featured-content">
                 <div class="featured-meta">
-                    <span>${this.featuredPost.readTime || '5 min read'}</span>
+                    <span>${this.featuredPost.readTime}</span>
                     <span>${new Date(this.featuredPost.publishedAt).toDateString()}</span>
                 </div>
                 <h2>${this.featuredPost.title}</h2>
@@ -127,28 +189,24 @@ class BlogManager {
 
     renderPosts() {
         const container = document.getElementById('posts-container');
-        const pagination = document.getElementById('pagination');
-
         const posts = this.getFilteredPosts();
         const start = (this.currentPage - 1) * this.postsPerPage;
         const pagePosts = posts.slice(start, start + this.postsPerPage);
 
         container.innerHTML = pagePosts.map(p => `
-        <article class="post-card">
-            <a href="/blog/${p.slug}">
-                <div class="post-image">
-                    <img src="${p.featuredImage || '/assets/blog-placeholder.jpg'}">
-                </div>
-                <div class="post-content">
-                    <span class="post-category">${this.formatCategoryName(p.category)}</span>
-                    <h3>${p.title}</h3>
-                    <p class="post-excerpt">${p.excerpt}</p>
-                </div>
-            </a>
-        </article>
+            <article class="post-card">
+                <a href="blog-post.html?id=${p.id}">
+                    <div class="post-image">
+                        <img src="${p.featuredImage || '/assets/blog-placeholder.jpg'}" alt="${p.title}">
+                    </div>
+                    <div class="post-content">
+                        <span class="post-category">${this.formatCategoryName(p.category)}</span>
+                        <h3>${p.title}</h3>
+                        <p class="post-excerpt">${p.excerpt}</p>
+                    </div>
+                </a>
+            </article>
         `).join('');
-
-        pagination.innerHTML = '';
     }
 
     renderCategories() {
@@ -173,12 +231,19 @@ class BlogManager {
             .slice(0, 3)
             .map(p => `
             <div class="popular-post">
-                <img src="${p.featuredImage || '/assets/blog-placeholder.jpg'}">
-                <a href="/blog/${p.slug}">${p.title}</a>
+                <img src="${p.featuredImage}">
+                <a href="blog-post.html?id=${p.id}">${p.title}</a>
             </div>`).join('');
     }
 
-    setupNewsletter() {}
+    setupInfiniteScroll() {
+        window.addEventListener('scroll', () => {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+                this.currentPage++;
+                this.renderPosts();
+            }
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => new BlogManager());

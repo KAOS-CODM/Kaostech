@@ -28,5 +28,55 @@
     "features": ["Security Updates", "Performance Monitoring", "Backup Solutions", "Technical Support"],
     "startingPrice": "$150/month",
     "details": "Regular maintenance packages to ensure your website remains secure and up-to-date."
+  },
+  {
+    "id": "seo-optimization",
+    "title": "SEO Optimization",
+    "description": "Improve your search engine rankings and drive more organic traffic to your website.",
+    "icon": "search",
+    "color": "#f59e0b",
+    "features": ["Keyword Research", "On-Page SEO", "Technical SEO", "Monthly Reporting"],
+    "startingPrice": "$500/month",
+    "details": "Comprehensive SEO services to increase your online visibility and attract qualified leads."
+  },
+  {
+    "id": "mobile-app-development",
+    "title": "Mobile App Development",
+    "description": "Native and cross-platform mobile applications for iOS and Android devices.",
+    "icon": "smartphone",
+    "color": "#ef4444",
+    "features": ["iOS & Android", "Cross-Platform", "App Store Optimization", "Maintenance"],
+    "startingPrice": "$5,000",
+    "details": "Professional mobile app development with modern frameworks and best practices."
+  },
+  {
+    "id": "web-application",
+    "title": "Web Application Development",
+    "description": "Complex web applications with advanced functionality and user management.",
+    "icon": "layers",
+    "color": "#8b5cf6",
+    "features": ["User Authentication", "Database Design", "API Development", "Admin Dashboard"],
+    "startingPrice": "$4,000",
+    "details": "Scalable web applications built with modern technologies and security best practices."
+  },
+  {
+    "id": "website-redesign",
+    "title": "Website Redesign",
+    "description": "Modernize your existing website with improved design, functionality, and user experience.",
+    "icon": "refresh",
+    "color": "#06b6d4",
+    "features": ["UI/UX Design", "Content Migration", "Performance Optimization", "SEO Preservation"],
+    "startingPrice": "$2,000",
+    "details": "Complete website redesign while maintaining your SEO rankings and existing functionality."
+  },
+  {
+    "id": "consulting",
+    "title": "Technical Consulting",
+    "description": "Expert advice on technology choices, architecture, and digital strategy.",
+    "icon": "users",
+    "color": "#84cc16",
+    "features": ["Technology Assessment", "Architecture Planning", "Strategy Development", "Code Review"],
+    "startingPrice": "$200/hour",
+    "details": "Strategic technical consulting to help you make informed decisions about your digital projects."
   }
 ]

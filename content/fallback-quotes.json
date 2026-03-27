@@ -1,9 +1,9 @@
 [
   {
-    "name": "Isaiah ",
+    "name": "Isaiah",
     "email": "klasikyemite04@gmail.com",
     "phone": "09135012572",
-    "company": "kaostech ",
+    "company": "kaostech",
     "projectType": "custom-development",
     "budget": "under-2000",
     "timeline": "1-month",
@@ -12,6 +12,66 @@
     "timestamp": "2026-01-07T17:52:38.697Z",
     "pageUrl": "http://localhost:3000/contact",
     "userAgent": "Mozilla/5.0 (Android 12; Mobile; rv:148.0) Gecko/148.0 Firefox/148.0",
+    "source": "quote-form"
+  },
+  {
+    "name": "Sarah Johnson",
+    "email": "sarah@startupco.com",
+    "phone": "+1 (555) 987-6543",
+    "company": "StartupCo",
+    "projectType": "ecommerce",
+    "budget": "5000-10000",
+    "timeline": "2-months",
+    "message": "We need a modern e-commerce platform for our fashion brand. Looking for something scalable and user-friendly.",
+    "referral": "referral",
+    "timestamp": "2026-03-20T10:30:00.000Z",
+    "pageUrl": "http://localhost:3000/contact",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "source": "quote-form"
+  },
+  {
+    "name": "Michael Chen",
+    "email": "mchen@techcorp.com",
+    "phone": "+1 (555) 456-7890",
+    "company": "TechCorp Solutions",
+    "projectType": "webapp",
+    "budget": "10000-25000",
+    "timeline": "3-months",
+    "message": "Developing a project management web application for our team. Need real-time collaboration features and mobile responsiveness.",
+    "referral": "linkedin",
+    "timestamp": "2026-03-18T14:15:00.000Z",
+    "pageUrl": "http://localhost:3000/contact",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+    "source": "quote-form"
+  },
+  {
+    "name": "Emma Rodriguez",
+    "email": "emma@localbusiness.com",
+    "phone": "+1 (555) 321-0987",
+    "company": "Local Business LLC",
+    "projectType": "business",
+    "budget": "2000-5000",
+    "timeline": "1-month",
+    "message": "Small business owner looking to establish an online presence. Need a professional website with contact forms and service information.",
+    "referral": "google",
+    "timestamp": "2026-03-15T09:45:00.000Z",
+    "pageUrl": "http://localhost:3000/contact",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15",
+    "source": "quote-form"
+  },
+  {
+    "name": "David Park",
+    "email": "david@consultingfirm.com",
+    "phone": "+1 (555) 654-3210",
+    "company": "Park Consulting",
+    "projectType": "redesign",
+    "budget": "under-2000",
+    "timeline": "2-weeks",
+    "message": "Existing website needs a refresh. Current design is outdated and not mobile-friendly. Looking for quick turnaround.",
+    "referral": "word-of-mouth",
+    "timestamp": "2026-03-12T16:20:00.000Z",
+    "pageUrl": "http://localhost:3000/contact",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
     "source": "quote-form"
   }
 ]

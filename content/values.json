@@ -28,5 +28,23 @@
     "description": "Quality development within reasonable budgets. We maximize value without compromising quality.",
     "icon": "costeffective",
     "color": "#f59e0b"
+  },
+  {
+    "title": "Continuous Learning",
+    "description": "We stay updated with the latest technologies and best practices to deliver cutting-edge solutions.",
+    "icon": "learning",
+    "color": "#ec4899"
+  },
+  {
+    "title": "Reliability",
+    "description": "We deliver on time, within budget, and exceed expectations with every project.",
+    "icon": "reliability",
+    "color": "#84cc16"
+  },
+  {
+    "title": "Innovation",
+    "description": "We embrace new technologies and creative solutions to solve complex business challenges.",
+    "icon": "innovation",
+    "color": "#f97316"
   }
 ]

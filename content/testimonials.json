@@ -22,5 +22,41 @@
         "company": "Startup Hub",
         "content": "Professional and timely delivery. Very happy with the results.",
         "featured": false
+    },
+    {
+        "clientName": "Sarah Martinez",
+        "company": "Bella Vista Bistro",
+        "content": "Our new website and online ordering system transformed our business. Orders doubled overnight!",
+        "featured": true
+    },
+    {
+        "clientName": "David Chen",
+        "company": "Green Earth Foundation",
+        "content": "Kaos Tech helped us create a compelling online presence that truly represents our mission. Donations have increased significantly.",
+        "featured": false
+    },
+    {
+        "clientName": "Lisa Thompson",
+        "company": "Prime Properties",
+        "content": "The portfolio website showcases our properties beautifully. We've seen a marked increase in qualified leads.",
+        "featured": true
+    },
+    {
+        "clientName": "Mark Rodriguez",
+        "company": "FitLife Studio",
+        "content": "The management system they built has streamlined our operations completely. Highly recommend their services.",
+        "featured": false
+    },
+    {
+        "clientName": "Rachel Kim",
+        "company": "LearnAcademy",
+        "content": "The platform redesign improved user engagement tremendously. Our course completion rates are at an all-time high.",
+        "featured": true
+    },
+    {
+        "clientName": "Tom Wilson",
+        "company": "Local Services Co.",
+        "content": "Great communication throughout the project. The final product exceeded our expectations.",
+        "featured": false
     }
 ]

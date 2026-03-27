@@ -1,0 +1,50 @@
+[
+  {
+    "page": "/",
+    "title": "Kaos Tech | Professional Web Development Services",
+    "description": "Expert web development for small businesses and startups. Custom websites, e-commerce solutions, and web applications that drive results.",
+    "keywords": ["web development", "website design", "e-commerce", "small business websites", "custom web apps"],
+    "ogImage": "/assets/og/home.jpg",
+    "canonical": "https://kaostech.com/"
+  },
+  {
+    "page": "/about",
+    "title": "About Kaos Tech | Our Story & Mission",
+    "description": "Learn about Kaos Tech's mission to make professional web development accessible to small businesses and individuals.",
+    "keywords": ["about us", "web development company", "mission", "team"],
+    "ogImage": "/assets/og/about.jpg",
+    "canonical": "https://kaostech.com/about"
+  },
+  {
+    "page": "/services",
+    "title": "Web Development Services | Kaos Tech",
+    "description": "Comprehensive web development services including custom websites, e-commerce platforms, and web applications.",
+    "keywords": ["web development services", "e-commerce", "custom websites", "web apps"],
+    "ogImage": "/assets/og/services.jpg",
+    "canonical": "https://kaostech.com/services"
+  },
+  {
+    "page": "/portfolio",
+    "title": "Portfolio | Our Web Development Projects",
+    "description": "Browse our portfolio of successful web development projects for businesses and startups.",
+    "keywords": ["portfolio", "web development projects", "case studies", "examples"],
+    "ogImage": "/assets/og/portfolio.jpg",
+    "canonical": "https://kaostech.com/portfolio"
+  },
+  {
+    "page": "/blog",
+    "title": "Blog | Web Development Tips & Insights",
+    "description": "Stay updated with the latest web development trends, tips, and industry insights.",
+    "keywords": ["blog", "web development tips", "SEO", "technology trends"],
+    "ogImage": "/assets/og/blog.jpg",
+    "canonical": "https://kaostech.com/blog"
+  },
+  {
+    "page": "/contact",
+    "title": "Contact Kaos Tech | Get Your Project Started",
+    "description": "Ready to start your web development project? Contact us for a free consultation and quote.",
+    "keywords": ["contact", "quote", "consultation", "get started"],
+    "ogImage": "/assets/og/contact.jpg",
+    "canonical": "https://kaostech.com/contact"
+  }
+]

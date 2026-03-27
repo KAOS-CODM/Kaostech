@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const helmet = require('helmet');
+const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const dotenv = require('dotenv');
 const session = require('express-session');
@@ -18,8 +19,21 @@ const PORT = process.env.PORT || 3000;
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 app.locals.supabase = supabase;
 
-// -------------------- Security --------------------
-app.use(helmet());
+// -------------------- Compression & Security --------------------
+app.use(compression());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://cdnjs.cloudflare.com"],
+        styleSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        connectSrc: ["'self'"], // your API is local now
+      },
+    },
+  })
+);
 app.use(cors({
     origin: process.env.CLIENT_URL || 'http://localhost:3000',
     credentials: true
@@ -48,9 +62,18 @@ app.use(session({
     }
 }));
 
-// -------------------- Static Files --------------------
-app.use(express.static(path.join(__dirname, '../public')));
-app.use('/content', express.static(path.join(__dirname, '../content')));
+// -------------------- Static Files with Caching --------------------
+app.use(express.static(path.join(__dirname, '../public'), {
+    maxAge: '1d',
+    setHeaders: (res, path) => {
+        if (path.endsWith('.css') || path.endsWith('.js')) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1 year
+        }
+    }
+}));
+app.use('/content', express.static(path.join(__dirname, '../content'), {
+    maxAge: '1h'
+}));
 
 // -------------------- Admin Protection --------------------
 
@@ -64,6 +87,7 @@ app.use('/api/leads', require('./routes/leads'));
 app.use('/api/content', require('./routes/content'));
 app.use('/api/blog', require('./routes/blog'));
 app.use('/api/admin', require('./routes/admin'));
+app.use('/api/devto', require('./routes/devto'));
 
 // -------------------- Admin Dashboard --------------------
 app.get('/admin/dashboard.html', requireAdmin, (req, res) => {

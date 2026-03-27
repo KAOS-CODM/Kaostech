@@ -16,7 +16,15 @@
     { "title": "Custom Web Development", "url": "/services#custom" },
     { "title": "E-commerce Solutions", "url": "/services#ecommerce" },
     { "title": "Website Maintenance", "url": "/services#maintenance" },
-    { "title": "Technical Consulting", "url": "/services#consulting" }
+    { "title": "Technical Consulting", "url": "/services#consulting" },
+    { "title": "SEO Optimization", "url": "/services#seo" },
+    { "title": "Mobile App Development", "url": "/services#mobile" }
+  ],
+  "resources": [
+    { "title": "Web Design Guide", "url": "/resources/web-design" },
+    { "title": "SEO Checklist", "url": "/resources/seo-checklist" },
+    { "title": "Free Website Audit", "url": "/resources/audit" },
+    { "title": "Client Portal", "url": "/portal" }
   ],
   "contact": {
     "email": "hello@kaostech.com",
@@ -24,10 +32,18 @@
   },
   "newsletter": {
     "placeholder": "Your email",
-    "buttonText": "Subscribe"
+    "buttonText": "Subscribe",
+    "description": "Get weekly tips on web development and digital marketing"
   },
   "legal": [
     { "title": "Privacy Policy", "url": "/privacy" },
-    { "title": "Terms & Conditions", "url": "/terms" }
+    { "title": "Terms & Conditions", "url": "/terms" },
+    { "title": "Cookie Policy", "url": "/cookies" },
+    { "title": "Sitemap", "url": "/sitemap" }
+  ],
+  "socialMedia": [
+    { "platform": "LinkedIn", "url": "https://linkedin.com/company/kaostech", "icon": "linkedin" },
+    { "platform": "Twitter", "url": "https://twitter.com/kaostech", "icon": "twitter" },
+    { "platform": "GitHub", "url": "https://github.com/kaostech", "icon": "github" }
   ]
 }

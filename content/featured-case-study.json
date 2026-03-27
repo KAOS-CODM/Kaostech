@@ -28,5 +28,35 @@
         "challenge": "Manual workflow was slowing operations...",
         "solution": "We built a full-featured web app to automate tasks...",
         "results": "Efficiency improved by 60%..."
+    },
+    {
+        "title": "Restaurant Website & Online Ordering",
+        "slug": "restaurant-online-ordering",
+        "clientName": "Bella Vista Bistro",
+        "category": "ecommerce",
+        "metrics": { "impact": "75%", "timeline": "4 weeks", "satisfaction": "96%" },
+        "challenge": "Local restaurant needed online presence and ordering system during pandemic...",
+        "solution": "Created responsive website with integrated online ordering and table reservations...",
+        "results": "Online orders increased by 150%, overall revenue up 35%..."
+    },
+    {
+        "title": "Non-Profit Organization Website",
+        "slug": "nonprofit-website",
+        "clientName": "Green Earth Foundation",
+        "category": "business",
+        "metrics": { "impact": "70%", "timeline": "3 weeks", "satisfaction": "100%" },
+        "challenge": "Non-profit lacked professional online presence to attract donors...",
+        "solution": "Built donation-ready website with compelling storytelling and volunteer signup...",
+        "results": "Donations increased by 200%, volunteer applications up 300%..."
+    },
+    {
+        "title": "Real Estate Agent Portfolio Site",
+        "slug": "real-estate-portfolio",
+        "clientName": "Prime Properties",
+        "category": "business",
+        "metrics": { "impact": "65%", "timeline": "2 weeks", "satisfaction": "98%" },
+        "challenge": "Real estate agent needed modern platform to showcase properties...",
+        "solution": "Developed property listing website with advanced search and virtual tours...",
+        "results": "Client showings increased by 80%, sales closed up 45%..."
     }
 ]

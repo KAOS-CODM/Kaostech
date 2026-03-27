@@ -4,6 +4,18 @@
     background-color: var(--gray-light);
     margin-bottom: var(--space-2xl);
 }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
 .filter-buttons {
     display: flex;
     gap: var(--space-sm);
@@ -161,3 +173,203 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* No results state */
+.no-results {
+    text-align: center;
+    color: var(--gray-dark);
+    padding: var(--space-3xl) 1rem;
+    background-color: var(--gray-light);
+    border-radius: var(--radius-lg);
+    border: 1px dashed var(--gray);
+}
+.no-results h3 {
+    font-size: 1.5rem;
+    color: var(--dark);
+    margin-bottom: var(--space-sm);
+}
+.no-results p {
+    margin: 0;
+    color: var(--gray);
+}
+
+/* Portfolio stats, case study, and testimonials */
+.portfolio-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+    align-items: stretch;
+    margin-top: var(--space-lg);
+}
+.portfolio-stats .stat {
+    background: white;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+}
+.portfolio-stats .stat-number {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+.portfolio-stats .stat-label {
+    color: var(--gray);
+    font-size: 0.875rem;
+}
+
+.case-study, .portfolio-testimonials {
+    background: white;
+    border: 1px solid var(--gray-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+}
+.case-study .section-header, .portfolio-testimonials .section-header {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+}
+.case-study h2, .portfolio-testimonials h2 {
+    margin-bottom: var(--space-xs);
+}
+
+/* Featured case study styles */
+.case-study-content {
+    display: grid;
+    gap: var(--space-lg);
+}
+.case-study-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-lg);
+    border-bottom: 1px solid var(--gray-light);
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+.case-study-header h3 {
+    margin: 0;
+    font-size: 1.75rem;
+    color: var(--dark);
+}
+.case-study-header .client-name {
+    margin: 0;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+.case-study-category {
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+}
+.case-study-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+.case-study-metrics .metric {
+    background: var(--gray-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    text-align: center;
+}
+.case-study-metrics .metric-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+.case-study-metrics .metric-label {
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+.case-study-content h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xs);
+    color: var(--dark);
+}
+.case-study-content p {
+    color: var(--gray-dark);
+    margin-bottom: var(--space-md);
+}
+.case-study-cta {
+    text-align: right;
+}
+.case-study-cta .btn {
+    margin-top: var(--space-sm);
+}
+
+@media (max-width: 980px) {
+    .case-study-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .case-study-metrics {
+        grid-template-columns: 1fr;
+    }
+    .case-study-cta {
+        text-align: center;
+    }
+}
+
+.testimonials-slider {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* Modal styles */
+.portfolio-modal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 250ms ease, visibility 250ms ease;
+    position: fixed;
+    z-index: 1100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.portfolio-modal.is-open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+.portfolio-modal .modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    width: min(95%, 700px);
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+.portfolio-modal .modal-close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gray-dark);
+    cursor: pointer;
+}
+.portfolio-modal .modal-close:hover {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .portfolio-stats {
+        grid-template-columns: 1fr;
+    }
+}
+

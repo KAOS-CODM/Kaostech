@@ -7,5 +7,30 @@
   "mapOverlay": [
     "Virtual Office - Serving Clients Worldwide",
     "We work remotely with clients across the globe, providing flexible communication options."
+  ],
+  "socialMedia": {
+    "linkedin": "https://linkedin.com/company/kaostech",
+    "twitter": "https://twitter.com/kaostech",
+    "github": "https://github.com/kaostech",
+    "facebook": "https://facebook.com/kaostech"
+  },
+  "businessHours": {
+    "monday": "9:00 AM - 6:00 PM",
+    "tuesday": "9:00 AM - 6:00 PM",
+    "wednesday": "9:00 AM - 6:00 PM",
+    "thursday": "9:00 AM - 6:00 PM",
+    "friday": "9:00 AM - 6:00 PM",
+    "saturday": "Closed",
+    "sunday": "Closed"
+  },
+  "emergencyContact": {
+    "phone": "+1 (555) 911-HELP",
+    "description": "For urgent technical issues only"
+  },
+  "supportChannels": [
+    "Email Support",
+    "Live Chat",
+    "Phone Support",
+    "Project Management Portal"
   ]
 }

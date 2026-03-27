@@ -14,5 +14,37 @@
   {
     "question": "Do you work with international clients?",
     "answer": "Yes, we work with clients worldwide. Our primary communication is in English, and we can accommodate different time zones."
+  },
+  {
+    "question": "What technologies do you use?",
+    "answer": "We use modern, industry-standard technologies including HTML5, CSS3, JavaScript, React, Node.js, and various CMS platforms. We choose the best tools for each project."
+  },
+  {
+    "question": "Do you provide ongoing maintenance?",
+    "answer": "Yes, we offer various maintenance packages to keep your website secure, updated, and performing optimally after launch."
+  },
+  {
+    "question": "Can you work with my existing website?",
+    "answer": "Absolutely! We can redesign, add features, or migrate your existing website to a new platform while preserving your content and SEO value."
+  },
+  {
+    "question": "What is your typical project timeline?",
+    "answer": "Timelines vary by project complexity. Simple websites take 2-4 weeks, while complex web applications can take 2-3 months. We'll provide a detailed timeline during consultation."
+  },
+  {
+    "question": "Do you offer payment plans?",
+    "answer": "Yes, we offer flexible payment terms for larger projects. Typically, we require a deposit to start work, with milestone payments throughout the project."
+  },
+  {
+    "question": "What if I'm not satisfied with the final result?",
+    "answer": "We offer a 30-day satisfaction guarantee. If you're not happy with the final deliverable, we'll work with you to make revisions until you're completely satisfied."
+  },
+  {
+    "question": "Do you provide training on how to use the website?",
+    "answer": "Yes, we provide comprehensive training and documentation for content management systems and any custom features we build."
+  },
+  {
+    "question": "Can you help with domain and hosting setup?",
+    "answer": "Yes, we can assist with domain registration, hosting setup, and DNS configuration to get your website live and running smoothly."
   }
 ]
