@@ -1,23 +1,90 @@
-# Node modules
+# =========================
+# 🚫 Node Modules
+# =========================
 node_modules/
+server/node_modules/
 
-# Logs
+# =========================
+# 🔐 Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# 🧾 Logs
+# =========================
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# OS files
+# =========================
+# 🧠 Runtime / Temp Files
+# =========================
+tmp/
+temp/
+.cache/
+*.tmp
+
+# =========================
+# 💻 OS Files
+# =========================
 .DS_Store
 Thumbs.db
 
-# Environment files
-.env
+# =========================
+# 🧪 Editor / IDE Files
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Build / dist folders
+# =========================
+# 📦 Build / Output
+# =========================
 dist/
 build/
 
-# Backup / temp files
-*.tmp
-*.swp
+# =========================
+# 🔥 Server Secrets / Config
+# =========================
+server/config/*.env
+server/config/*.json
 
-Untitled-1.css
-blogg.js
+# =========================
+# 🧪 Experimental / Backup Files
+# =========================
+*~
+*.bak
+*.backup
+*.old
+
+# Ignore accidental duplicate files like this 👇
+server/app.js1
+
+# =========================
+# 📸 Optional: Ignore Large Assets (if needed)
+# =========================
+# public/assets/images/uploads/
+# public/assets/videos/
+
+# =========================
+# 🧾 Database Dumps (IMPORTANT)
+# =========================
+*.sql
+*.dump
+*.db
+*.sqlite
+
+# But keep schema if you want version control
+!database/schema.sql
+
+# =========================
+# 🔑 API Keys / Secrets
+# =========================
+*.pem
+*.key
+*.crt
