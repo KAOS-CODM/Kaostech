@@ -47,7 +47,27 @@
         <button type="submit" id="submitBtn">Add Blog</button>
         <button type="button" id="cancelBtn" style="display: none;">Cancel</button>
       </div>
+      <input type="hidden" id="blogSource" value="local" />
+      <input type="hidden" id="blogSourceUrl" />
     </form>
+
+    <h2>Import Dev.to Posts</h2>
+    <section id="devtoImportSection" class="devto-import">
+      <div class="form-group">
+        <input id="devtoUsernameInput" placeholder="Dev.to username" />
+      </div>
+      <div class="form-group devto-controls">
+        <button type="button" id="fetchDevtoBtn">Fetch Dev.to Posts</button>
+        <button type="button" id="saveDevtoUsernameBtn">Save Username</button>
+      </div>
+      <div class="form-group">
+        <select id="savedDevtoUsernames">
+          <option value="">Select saved username</option>
+        </select>
+      </div>
+      <div id="devtoMessage" class="info-message">Enter a Dev.to username to preview posts, then import them into the blog form.</div>
+      <div id="devtoPostsContainer" class="devto-posts-container"></div>
+    </section>
 
     <h2>Existing Blogs</h2>
     <div class="table-controls">

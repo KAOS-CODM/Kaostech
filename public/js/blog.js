@@ -15,6 +15,7 @@ class BlogManager {
         this.renderFeaturedPost();
         this.renderPosts();
         this.renderCategories();
+        this.renderFilterTabs(); // 👈 ADD THIS
         this.renderPopularPosts();
         this.setupEventListeners();
         this.setupInfiniteScroll();
@@ -104,15 +105,24 @@ class BlogManager {
 
     processCategories() {
         this.categories = { all: { name: 'All Posts', count: this.posts.length } };
+
         this.posts.forEach(post => {
-            const cat = post.category || 'dev';
-            if (!this.categories[cat]) {
-                this.categories[cat] = {
-                    name: this.formatCategoryName(cat),
-                    count: 0
-                };
-            }
-            this.categories[cat].count++;
+            const tags = Array.isArray(post.tags) && post.tags.length
+                ? post.tags
+                : [post.category || 'uncategorized'];
+
+            tags.forEach(tag => {
+                const key = tag.toLowerCase();
+
+                if (!this.categories[key]) {
+                    this.categories[key] = {
+                        name: this.formatCategoryName(tag),
+                        count: 0
+                    };
+                }
+
+                this.categories[key].count++;
+            });
         });
     }
 
@@ -152,7 +162,10 @@ class BlogManager {
         let posts = [...this.posts];
 
         if (this.currentCategory !== 'all') {
-            posts = posts.filter(p => p.category.toLowerCase() === this.currentCategory.toLowerCase());
+            posts = posts.filter(p => {
+            const tags = Array.isArray(p.tags) ? p.tags.map(t => t.toLowerCase()) : [];
+            return tags.includes(this.currentCategory.toLowerCase());
+        });
         }
 
         if (this.searchTerm) {
@@ -198,7 +211,9 @@ class BlogManager {
                         <img src="${p.featuredImage || '/assets/blog-placeholder.jpg'}" alt="${p.title}">
                     </div>
                     <div class="post-content">
-                        <span class="post-category">${this.formatCategoryName(p.category)}</span>
+                        <span class="post-category">
+                            ${p.tags && p.tags.length ? this.formatCategoryName(p.tags[0]) : 'General'}
+                        </span>
                         <h3>${p.title}</h3>
                         <p class="post-excerpt">${p.excerpt}</p>
                     </div>
@@ -232,6 +247,32 @@ class BlogManager {
                 <img src="${p.featuredImage}">
                 <a href="/blog/${p.slug}">${p.title}</a>
             </div>`).join('');
+    }
+
+    renderFilterTabs() {
+        const container = document.querySelector('.filter-tabs');
+        if (!container) return;
+
+        const tabs = Object.keys(this.categories);
+
+        container.innerHTML = tabs.map(cat => `
+            <button class="filter-tab ${cat === 'all' ? 'active' : ''}" data-category="${cat}">
+                ${this.categories[cat].name}
+            </button>
+        `).join('');
+
+        // rebind events
+        container.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', e => {
+                this.currentCategory = e.target.dataset.category;
+                this.currentPage = 1;
+
+                container.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+
+                this.renderPosts();
+            });
+        });
     }
 
     setupInfiniteScroll() {

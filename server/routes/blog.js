@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
 
 // POST new blog
 router.post('/', (req, res) => {
-  const { title, excerpt, content, category, tags, featuredImage, featured } = req.body;
+  const { title, excerpt, content, category, tags, featuredImage, featured, source, sourceUrl } = req.body;
 
   if (!title || !content) {
     return res.status(400).json({ message: 'Title and content are required' });
@@ -45,13 +45,15 @@ router.post('/', (req, res) => {
       slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''),
       excerpt: excerpt || content.substring(0, 150) + (content.length > 150 ? '...' : ''),
       content,
-      author: 'Kaos Tech Team',
+      author: source === 'devto' ? 'Dev.to Import' : 'Kaos Tech Team',
       publishedAt: new Date().toISOString().split('T')[0],
       category: category || 'insights',
       tags: tags || ['blog'],
       featuredImage: featuredImage || '/assets/blog/default.jpg',
       readTime: Math.ceil(content.split(' ').length / 200) + ' min read',
-      featured: featured || false
+      featured: featured || false,
+      source: source || 'local',
+      sourceUrl: sourceUrl || ''
     };
 
     blogs.push(newBlog);
@@ -104,7 +106,7 @@ router.get('/:id', (req, res) => {
 // PUT update blog
 router.put('/:id', (req, res) => {
   const blogId = Number(req.params.id);
-  const { title, excerpt, content, category, tags, featuredImage, featured } = req.body;
+  const { title, excerpt, content, category, tags, featuredImage, featured, source, sourceUrl } = req.body;
 
   if (!title || !content) {
     return res.status(400).json({ message: 'Title and content are required' });
@@ -128,7 +130,9 @@ router.put('/:id', (req, res) => {
       tags: tags || ['blog'],
       featuredImage: featuredImage || '/assets/blog/default.jpg',
       readTime: Math.ceil(content.split(' ').length / 200) + ' min read',
-      featured: featured || false
+      featured: featured || false,
+      source: source || blogs[blogIndex].source || 'local',
+      sourceUrl: sourceUrl || blogs[blogIndex].sourceUrl || ''
     };
 
     blogs[blogIndex] = updatedBlog;

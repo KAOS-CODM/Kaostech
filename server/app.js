@@ -30,6 +30,7 @@ app.use(
         styleSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         connectSrc: ["'self'"], // your API is local now
+        imgSrc: ["'self'", 'https:', 'data:'],
       },
     },
   })

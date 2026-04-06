@@ -1,12 +1,16 @@
 // Global variables
 let allBlogs = [];
 let editingBlogId = null;
+let devtoPosts = [];
+let savedDevtoUsernames = [];
 
 // DOM elements (will be set when DOM is ready)
 let blogForm, formTitle, submitBtn, cancelBtn, blogTitle, blogExcerpt, blogContent,
-    blogCategory, blogTags, blogFeaturedImage, blogFeatured, blogTable,
+    blogCategory, blogTags, blogFeaturedImage, blogFeatured, blogSource, blogSourceUrl, blogTable,
     searchInput, categoryFilter, featuredFilter, selectAllCheckbox,
-    bulkActions, bulkDeleteBtn, selectAllBtn;
+    bulkActions, bulkDeleteBtn, selectAllBtn,
+    devtoUsernameInput, savedDevtoUsernamesSelect, fetchDevtoBtn, saveDevtoUsernameBtn,
+    devtoPostsContainer, devtoMessage;
 
 // Global functions
 function updateBulkActionsVisibility() {
@@ -60,6 +64,145 @@ function renderBlogs(blogs) {
   console.log('Blogs rendered successfully');
 }
 
+async function loadSavedDevtoUsernames() {
+  try {
+    const res = await fetch('/api/devto/usernames');
+    if (!res.ok) throw new Error(`Failed to load usernames (${res.status})`);
+    savedDevtoUsernames = await res.json();
+  } catch (err) {
+    console.warn('Failed to load saved Dev.to usernames:', err);
+    savedDevtoUsernames = [];
+  }
+}
+
+async function saveDevtoUsername(username) {
+  if (!username) return;
+  try {
+    const res = await fetch('/api/devto/usernames', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username })
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to save username (${res.status})`);
+    }
+
+    savedDevtoUsernames = await res.json();
+    renderDevtoUsernameOptions();
+  } catch (err) {
+    console.error('Failed to save Dev.to username:', err);
+    setDevtoMessage('Unable to save username. Please try again.', true);
+  }
+}
+
+function renderDevtoUsernameOptions() {
+  if (!savedDevtoUsernamesSelect) return;
+  const options = ['<option value="">Select saved username</option>'];
+  savedDevtoUsernames.forEach(username => {
+    options.push(`<option value="${username}">${username}</option>`);
+  });
+  savedDevtoUsernamesSelect.innerHTML = options.join('');
+}
+
+function setDevtoMessage(text, isError = false) {
+  if (!devtoMessage) return;
+  devtoMessage.textContent = text;
+  devtoMessage.style.color = isError ? '#fca5a5' : '#d1d5db';
+}
+
+async function fetchDevtoPosts(username) {
+  if (!username) {
+    setDevtoMessage('Please enter a Dev.to username.', true);
+    return;
+  }
+
+  setDevtoMessage(`Fetching posts for ${username}...`);
+  try {
+    const res = await fetch(`/api/devto?username=${encodeURIComponent(username)}`);
+    if (!res.ok) {
+      throw new Error(`Dev.to fetch failed with status ${res.status}`);
+    }
+
+    const posts = await res.json();
+    if (!Array.isArray(posts) || posts.length === 0) {
+      setDevtoMessage('No posts were found for that username.', true);
+      devtoPosts = [];
+      renderDevtoPosts();
+      return;
+    }
+
+    devtoPosts = posts;
+    setDevtoMessage(`Loaded ${posts.length} Dev.to post(s). Preview and import the one you want.`);
+    renderDevtoPosts();
+  } catch (err) {
+    console.error('Dev.to fetch error:', err);
+    setDevtoMessage('Unable to fetch Dev.to posts. Please check the username and try again.', true);
+    devtoPosts = [];
+    renderDevtoPosts();
+  }
+}
+
+function renderDevtoPosts() {
+  if (!devtoPostsContainer) return;
+  if (!devtoPosts.length) {
+    devtoPostsContainer.innerHTML = '<p>No Dev.to posts loaded yet.</p>';
+    return;
+  }
+
+  devtoPostsContainer.innerHTML = devtoPosts.map(post => {
+    const cover = post.cover_image || post.social_image || post.user?.profile_image || '/assets/blog/default.jpg';
+    const excerpt = post.description || post.title || 'No description available';
+    const author = post.user?.name || post.user?.username || 'Dev.to User';
+    const tags = Array.isArray(post.tag_list) ? post.tag_list.join(', ') : '';
+    const publishedAt = post.published_at ? new Date(post.published_at).toLocaleDateString() : '';
+
+    return `
+      <div class="devto-post" data-id="${post.id}">
+        <img src="${cover}" alt="${post.title}" />
+        <div class="devto-post-content">
+          <div class="devto-meta">
+            <span>${author}</span>
+            <span>${publishedAt}</span>
+          </div>
+          <h3>${post.title}</h3>
+          <p>${excerpt}</p>
+          <p><strong>Tags:</strong> ${tags}</p>
+        </div>
+        <div class="devto-actions">
+          <button type="button" class="import-devto-btn" data-id="${post.id}">Import</button>
+          <a href="${post.url}" target="_blank" rel="noopener noreferrer">View on Dev.to</a>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function importDevtoPost(postId) {
+  const post = devtoPosts.find(p => String(p.id) === String(postId));
+  if (!post) {
+    alert('Selected Dev.to post could not be found.');
+    return;
+  }
+
+  const excerpt = post.description || '';
+  const content = `${excerpt}\n\nImported from Dev.to: ${post.url}`;
+
+  if (blogTitle) blogTitle.value = post.title || '';
+  if (blogExcerpt) blogExcerpt.value = excerpt;
+  if (blogContent) blogContent.value = content;
+  if (blogCategory) blogCategory.value = (post.tag_list && post.tag_list.length) ? post.tag_list[0] : 'insights';
+  if (blogTags) blogTags.value = (post.tag_list || []).join(', ');
+  if (blogFeaturedImage) blogFeaturedImage.value = post.cover_image || post.social_image || '/assets/blog/default.jpg';
+  if (blogSource) blogSource.value = 'devto';
+  if (blogSourceUrl) blogSourceUrl.value = post.url || '';
+
+  if (formTitle) formTitle.textContent = 'Import Dev.to Post';
+  if (submitBtn) submitBtn.textContent = 'Save Imported Post';
+  if (cancelBtn) cancelBtn.classList.add('visible');
+
+  if (blogForm) blogForm.scrollIntoView({ behavior: 'smooth' });
+}
+
 // Global filter function
 function filterBlogs() {
   const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
@@ -90,6 +233,8 @@ function resetForm() {
   if (cancelBtn) cancelBtn.classList.remove('visible');
   blogForm.reset();
   if (blogFeaturedImage) blogFeaturedImage.value = '/assets/blog/default.jpg';
+  if (blogSource) blogSource.value = 'local';
+  if (blogSourceUrl) blogSourceUrl.value = '';
   console.log('Form reset complete');
 }
 
@@ -244,7 +389,7 @@ function showPreviewModal(blog) {
   };
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   console.log('Dashboard DOMContentLoaded triggered');
   // Set DOM elements
   blogForm = document.getElementById('addBlogForm');
@@ -258,6 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
   blogTags = document.getElementById('blogTags');
   blogFeaturedImage = document.getElementById('blogFeaturedImage');
   blogFeatured = document.getElementById('blogFeatured');
+  blogSource = document.getElementById('blogSource');
+  blogSourceUrl = document.getElementById('blogSourceUrl');
   blogTable = document.getElementById('blogTable');
   searchInput = document.getElementById('searchInput');
   categoryFilter = document.getElementById('categoryFilter');
@@ -266,8 +413,53 @@ document.addEventListener('DOMContentLoaded', () => {
   bulkActions = document.querySelector('.bulk-actions');
   bulkDeleteBtn = document.getElementById('bulkDeleteBtn');
   selectAllBtn = document.getElementById('selectAllBtn');
+  devtoUsernameInput = document.getElementById('devtoUsernameInput');
+  savedDevtoUsernamesSelect = document.getElementById('savedDevtoUsernames');
+  fetchDevtoBtn = document.getElementById('fetchDevtoBtn');
+  saveDevtoUsernameBtn = document.getElementById('saveDevtoUsernameBtn');
+  devtoPostsContainer = document.getElementById('devtoPostsContainer');
+  devtoMessage = document.getElementById('devtoMessage');
 
   console.log('All DOM elements initialized');
+
+  await loadSavedDevtoUsernames();
+  renderDevtoUsernameOptions();
+
+  if (fetchDevtoBtn) {
+    fetchDevtoBtn.addEventListener('click', () => {
+      const username = (devtoUsernameInput?.value || '').trim();
+      fetchDevtoPosts(username);
+    });
+  }
+
+  if (saveDevtoUsernameBtn) {
+    saveDevtoUsernameBtn.addEventListener('click', async () => {
+      const username = (devtoUsernameInput?.value || '').trim();
+      if (!username) {
+        setDevtoMessage('Enter a Dev.to username before saving.', true);
+        return;
+      }
+      await saveDevtoUsername(username);
+      setDevtoMessage(`Saved ${username} for future use.`);
+    });
+  }
+
+  if (savedDevtoUsernamesSelect) {
+    savedDevtoUsernamesSelect.addEventListener('change', (e) => {
+      const username = e.target.value;
+      if (username) {
+        if (devtoUsernameInput) devtoUsernameInput.value = username;
+        fetchDevtoPosts(username);
+      }
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('import-devto-btn')) {
+      const postId = e.target.dataset.id;
+      importDevtoPost(postId);
+    }
+  });
 
   // Event delegation for action buttons (Edit, Delete, Preview)
   document.addEventListener('click', (e) => {
@@ -304,7 +496,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const blogData = { title, excerpt, content, category, tags, featuredImage, featured };
+      const blogData = {
+        title,
+        excerpt,
+        content,
+        category,
+        tags,
+        featuredImage,
+        featured,
+        source: blogSource?.value || 'local',
+        sourceUrl: blogSourceUrl?.value || ''
+      };
 
       try {
         const method = editingBlogId ? 'PUT' : 'POST';

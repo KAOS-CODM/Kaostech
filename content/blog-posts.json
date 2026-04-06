@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 634478633976473500000,
     "title": "The Importance of Mobile-First Design in 2026",
     "slug": "mobile-first-design-2026",
     "excerpt": "Why mobile-first design is crucial for modern websites and how it impacts user experience and SEO.",
@@ -19,7 +19,7 @@
     "featured": true
   },
   {
-    "id": 2,
+    "id": 7.663245988633476e+22,
     "title": "Building Scalable E-commerce Solutions",
     "slug": "scalable-ecommerce-solutions",
     "excerpt": "Key considerations for creating e-commerce platforms that can grow with your business.",
@@ -38,7 +38,7 @@
     "featured": false
   },
   {
-    "id": 3,
+    "id": 7755423767263,
     "title": "The Future of Web Development: Trends to Watch",
     "slug": "web-development-trends-2026",
     "excerpt": "Exploring emerging technologies and methodologies shaping the future of web development.",
@@ -57,7 +57,7 @@
     "featured": false
   },
   {
-    "id": 4,
+    "id": 764364562564,
     "title": "SEO Best Practices for Small Business Websites",
     "slug": "seo-best-practices-small-business",
     "excerpt": "Practical SEO strategies that small businesses can implement to improve their online visibility.",
@@ -76,7 +76,7 @@
     "featured": true
   },
   {
-    "id": 5,
+    "id": 7263576834347865,
     "title": "Securing Your Website: Essential Security Measures",
     "slug": "website-security-essentials",
     "excerpt": "Critical security practices to protect your website and customer data from cyber threats.",
@@ -95,7 +95,7 @@
     "featured": false
   },
   {
-    "id": 6,
+    "id": 7.673634364365348e+21,
     "title": "Choosing the Right CMS for Your Business",
     "slug": "choosing-right-cms",
     "excerpt": "A guide to selecting the perfect content management system for your specific needs.",
@@ -112,5 +112,109 @@
     "featuredImage": "/assets/blog/cms-guide.jpg",
     "readTime": "5 min read",
     "featured": true
+  },
+  {
+    "id": 1775462765809,
+    "title": "Why Are We Still Doing GPU Work in JavaScript? (Live WebGPU Benchmark & Demo🚀)",
+    "slug": "why-are-we-still-doing-gpu-work-in-javascript-live-webgpu-benchmark-demo",
+    "excerpt": "JavaScript has been the main language of the web for years. Its popularity probably surprised even...",
+    "content": "JavaScript has been the main language of the web for years. Its popularity probably surprised even...\n\nImported from Dev.to: https://dev.to/sylwia-lask/why-are-we-still-doing-gpu-work-in-javascript-live-webgpu-benchmark-demo-4j6i",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-06",
+    "category": "insights",
+    "tags": [
+      "webdev",
+      "javascript",
+      "typescript",
+      "webgpu"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh08eu2tusvx2fr1cavq0.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "local",
+    "sourceUrl": "https://dev.to/sylwia-lask/why-are-we-still-doing-gpu-work-in-javascript-live-webgpu-benchmark-demo-4j6i"
+  },
+  {
+    "id": 1775465394468,
+    "title": "9 Things You’re Overengineering (The Browser Already Solved Them)",
+    "slug": "9-things-you-re-overengineering-the-browser-already-solved-them",
+    "excerpt": "I love writing philosophical essays — thoughts about code, work, all that stuff. I also love deep...",
+    "content": "I love writing philosophical essays — thoughts about code, work, all that stuff. I also love deep...\n\nImported from Dev.to: https://dev.to/sylwia-lask/9-things-youre-overengineering-the-browser-already-solved-them-o99",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-06",
+    "category": "insights",
+    "tags": [
+      "webdev",
+      "javascript",
+      "css",
+      "browser"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fw1prh2ukqx4wadywbp76.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/sylwia-lask/9-things-youre-overengineering-the-browser-already-solved-them-o99"
+  },
+  {
+    "id": 1775465401690,
+    "title": "How I Almost Burned Out Doing Everything “Right”",
+    "slug": "how-i-almost-burned-out-doing-everything-right",
+    "excerpt": "Today I wanted to write a philosophical essay about AI. Or maybe something more technical. But once...",
+    "content": "Today I wanted to write a philosophical essay about AI. Or maybe something more technical. But once...\n\nImported from Dev.to: https://dev.to/sylwia-lask/how-i-almost-burned-out-doing-everything-right-31j6",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-06",
+    "category": "insights",
+    "tags": [
+      "discuss",
+      "career",
+      "productivity",
+      "mentalhealth"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpne08e7s49j3reck4w2t.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/sylwia-lask/how-i-almost-burned-out-doing-everything-right-31j6"
+  },
+  {
+    "id": 1775465423827,
+    "title": "The Real Skill in Programming Is Debugging. Everything Else Is Copy-Paste",
+    "slug": "the-real-skill-in-programming-is-debugging-everything-else-is-copy-paste",
+    "excerpt": "I have a feeling this statement is even more true in the age of AI and coding agents. Sure, today we...",
+    "content": "I have a feeling this statement is even more true in the age of AI and coding agents. Sure, today we...\n\nImported from Dev.to: https://dev.to/sylwia-lask/the-real-skill-in-programming-is-debugging-everything-else-is-copy-paste-i39",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-06",
+    "category": "insights",
+    "tags": [
+      "webdev",
+      "discuss",
+      "programming"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fp9dibumt3eb5j71q19l7.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/sylwia-lask/the-real-skill-in-programming-is-debugging-everything-else-is-copy-paste-i39"
+  },
+  {
+    "id": 1775466172917,
+    "title": "How to Use Git Worktrees to Run Multiple AI Agents on the Same Repo",
+    "slug": "how-to-use-git-worktrees-to-run-multiple-ai-agents-on-the-same-repo",
+    "excerpt": "AI agents working on the same repo stomp on each other. Git worktrees fix this by giving each agent its own directory and branch. Step-by-step setup.",
+    "content": "AI agents working on the same repo stomp on each other. Git worktrees fix this by giving each agent its own directory and branch. Step-by-step setup.\n\nImported from Dev.to: https://dev.to/battyterm/how-to-use-git-worktrees-to-run-multiple-ai-agents-on-the-same-repo-1on8",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-06",
+    "category": "insights",
+    "tags": [
+      "git",
+      "ai",
+      "tutorial",
+      "productivity"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fraw.githubusercontent.com%2Fbattysh%2Fbatty%2Fmain%2Fassets%2Fsocial%2Fdevto-worktree-tutorial-header.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/battyterm/how-to-use-git-worktrees-to-run-multiple-ai-agents-on-the-same-repo-1on8"
   }
 ]

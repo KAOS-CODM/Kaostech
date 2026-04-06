@@ -102,6 +102,10 @@ function renderBlogPost() {
   const contentElement = document.getElementById('post-content');
   if (contentElement) {
     contentElement.innerHTML = formatContent(currentPost.content);
+    // Add original source reference when available
+    if (currentPost.sourceUrl) {
+      contentElement.innerHTML += `\n<p><strong>Original post:</strong> <a href="${currentPost.sourceUrl}" target="_blank" rel="noopener noreferrer">Read on Dev.to</a></p>`;
+    }
     // Highlight code blocks if present
     if (window.Prism) {
       Prism.highlightAllUnder(contentElement);
