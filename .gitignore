@@ -2,23 +2,25 @@
 # 🚫 Node Modules
 # =========================
 node_modules/
+**/node_modules/
 server/node_modules/
 
 # =========================
 # 🔐 Environment Variables
 # =========================
 .env
-.env.*
+.env.local
+.env.*.local
 !.env.example
 
 # =========================
 # 🧾 Logs
 # =========================
-logs/
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
+logs/
 
 # =========================
 # 🧠 Runtime / Temp Files
@@ -41,6 +43,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+*.code-workspace
 
 # =========================
 # 📦 Build / Output
@@ -61,15 +64,13 @@ server/config/*.json
 *.bak
 *.backup
 *.old
+*.orig
+*.rej
 
 # Ignore accidental duplicate files like this 👇
+Untitled-1.css
+blogg.js
 server/app.js1
-
-# =========================
-# 📸 Optional: Ignore Large Assets (if needed)
-# =========================
-# public/assets/images/uploads/
-# public/assets/videos/
 
 # =========================
 # 🧾 Database Dumps (IMPORTANT)
