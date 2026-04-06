@@ -4,82 +4,109 @@
   <meta charset="UTF-8">
   <title>Kaos Tech Admin Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/main.css">
-  <style>
-    body {
-      background: #0f172a;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      padding: 2rem;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #111827;
-      padding: 2rem;
-      border-radius: 12px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #374151;
-      padding: 0.5rem;
-      text-align: left;
-    }
-    input, textarea, button {
-      width: 100%;
-      margin-top: 0.5rem;
-      padding: 0.5rem;
-      border-radius: 6px;
-      border: none;
-    }
-    button {
-      background: #3b82f6;
-      color: #fff;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #2563eb;
-    }
-    .form-group {
-      margin-bottom: 1rem;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/dashboard.css">
 </head>
 <body>
   <div class="container">
     <h1>Admin Dashboard</h1>
 
-    <h2>Add Blog</h2>
+    <h2 id="formTitle">Add Blog</h2>
     <form id="addBlogForm">
       <div class="form-group">
         <input id="blogTitle" placeholder="Blog Title" required />
       </div>
       <div class="form-group">
-        <textarea id="blogContent" placeholder="Blog Content" rows="4" required></textarea>
+        <textarea id="blogExcerpt" placeholder="Excerpt (short description)" rows="2"></textarea>
       </div>
-      <button type="submit">Add Blog</button>
+      <div class="form-group">
+        <textarea id="blogContent" placeholder="Blog Content" rows="8" required></textarea>
+      </div>
+      <div class="form-group">
+        <select id="blogCategory">
+          <option value="insights">Insights</option>
+          <option value="tutorials">Tutorials</option>
+          <option value="industry">Industry News</option>
+          <option value="case-studies">Case Studies</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input id="blogTags" placeholder="Tags (comma-separated)" />
+      </div>
+      <div class="form-group">
+        <input id="blogFeaturedImage" placeholder="Featured Image URL" value="/assets/blog/default.jpg" />
+      </div>
+      <div class="form-group">
+        <label>
+          <input type="checkbox" id="blogFeatured" /> Featured Post
+        </label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" id="submitBtn">Add Blog</button>
+        <button type="button" id="cancelBtn" style="display: none;">Cancel</button>
+      </div>
     </form>
 
     <h2>Existing Blogs</h2>
+    <div class="table-controls">
+      <div class="search-filter">
+        <input type="text" id="searchInput" placeholder="Search blogs..." />
+        <select id="categoryFilter">
+          <option value="">All Categories</option>
+          <option value="insights">Insights</option>
+          <option value="tutorials">Tutorials</option>
+          <option value="industry">Industry News</option>
+          <option value="case-studies">Case Studies</option>
+        </select>
+        <select id="featuredFilter">
+          <option value="">All Posts</option>
+          <option value="true">Featured Only</option>
+          <option value="false">Non-Featured</option>
+        </select>
+      </div>
+      <div class="bulk-actions" style="display: none;">
+        <button id="bulkDeleteBtn">Delete Selected</button>
+        <button id="selectAllBtn">Select All</button>
+      </div>
+    </div>
     <table>
       <thead>
         <tr>
+          <th><input type="checkbox" id="selectAllCheckbox" /></th>
           <th>ID</th>
           <th>Title</th>
-          <th>Action</th>
+          <th>Category</th>
+          <th>Featured</th>
+          <th>Published</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody id="blogTable">
         <!-- Blogs will load here -->
       </tbody>
     </table>
+  </div>
+
+  <!-- Preview Modal -->
+  <div id="previewModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <span class="modal-close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <div class="blog-meta">
+          <span id="modalAuthor"></span> • 
+          <span id="modalDate"></span> • 
+          <span id="modalCategory"></span> • 
+          <span id="modalReadTime"></span>
+        </div>
+        <div id="modalExcerpt"></div>
+        <div id="modalContent"></div>
+      </div>
+    </div>
   </div>
 
   <script src="/admin/dashboard.js"></script>

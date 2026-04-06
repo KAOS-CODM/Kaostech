@@ -8,7 +8,12 @@
     "author": "Kaos Tech Team",
     "publishedAt": "2026-03-15",
     "category": "insights",
-    "tags": ["mobile", "responsive", "SEO", "UX"],
+    "tags": [
+      "mobile",
+      "responsive",
+      "SEO",
+      "UX"
+    ],
     "featuredImage": "/assets/blog/mobile-first.jpg",
     "readTime": "5 min read",
     "featured": true
@@ -22,7 +27,12 @@
     "author": "Kaos Tech Team",
     "publishedAt": "2026-03-10",
     "category": "tutorials",
-    "tags": ["ecommerce", "scalability", "technology", "business"],
+    "tags": [
+      "ecommerce",
+      "scalability",
+      "technology",
+      "business"
+    ],
     "featuredImage": "/assets/blog/ecommerce-scale.jpg",
     "readTime": "7 min read",
     "featured": false
@@ -36,7 +46,12 @@
     "author": "Kaos Tech Team",
     "publishedAt": "2026-03-05",
     "category": "industry",
-    "tags": ["trends", "future", "AI", "PWA"],
+    "tags": [
+      "trends",
+      "future",
+      "AI",
+      "PWA"
+    ],
     "featuredImage": "/assets/blog/web-trends.jpg",
     "readTime": "6 min read",
     "featured": false
@@ -50,7 +65,12 @@
     "author": "Kaos Tech Team",
     "publishedAt": "2026-02-28",
     "category": "tutorials",
-    "tags": ["SEO", "small business", "marketing", "visibility"],
+    "tags": [
+      "SEO",
+      "small business",
+      "marketing",
+      "visibility"
+    ],
     "featuredImage": "/assets/blog/seo-small-business.jpg",
     "readTime": "8 min read",
     "featured": true
@@ -64,7 +84,12 @@
     "author": "Kaos Tech Team",
     "publishedAt": "2026-02-20",
     "category": "insights",
-    "tags": ["security", "HTTPS", "data protection", "cybersecurity"],
+    "tags": [
+      "security",
+      "HTTPS",
+      "data protection",
+      "cybersecurity"
+    ],
     "featuredImage": "/assets/blog/website-security.jpg",
     "readTime": "6 min read",
     "featured": false
@@ -78,7 +103,12 @@
     "author": "Kaos Tech Team",
     "publishedAt": "2026-02-15",
     "category": "tutorials",
-    "tags": ["CMS", "WordPress", "content management", "platforms"],
+    "tags": [
+      "CMS",
+      "WordPress",
+      "content management",
+      "platforms"
+    ],
     "featuredImage": "/assets/blog/cms-guide.jpg",
     "readTime": "5 min read",
     "featured": true

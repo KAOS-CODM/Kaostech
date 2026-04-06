@@ -67,7 +67,7 @@ p { margin-bottom: var(--space-md); color: var(--gray); }
 .nav-link { text-decoration: none; color: var(--dark); font-weight: 500; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); transition: all var(--transition-fast); }
 .nav-link:hover { color: var(--primary); background-color: var(--gray-light); }
 .nav-link.active { color: var(--primary); background-color: rgba(37, 99, 235, 0.1); }
-.cta-button { background-color: var(--primary); color: white !important; padding: var(--space-sm) var(--space-lg) !important; }
+.cta-button { background-color: var(--primary); color: rgb(64, 101, 204) !important; padding: var(--space-sm) var(--space-lg) !important; }
 .cta-button:hover { background-color: var(--primary-dark) !important; }
 .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: var(--space-sm); }
 .menu-toggle span { display: block; width: 24px; height: 2px; background-color: var(--dark); margin: 4px 0; transition: var(--transition-normal); }

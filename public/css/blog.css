@@ -3,7 +3,7 @@
    ========================= */
 
 .blog-content {
-    padding: var(--space-2xl) 0;
+    padding: calc(80px + var(--space-2xl)) 0 var(--space-2xl);
 }
 
 .blog-layout {

@@ -77,6 +77,16 @@ app.use('/content', express.static(path.join(__dirname, '../content'), {
 
 // -------------------- Admin Protection --------------------
 
+// Protect all /admin pages except login assets
+app.use('/admin', (req, res, next) => {
+  // Allow login page and its assets to load without auth
+  if (req.path === '/login.html' || req.path === '/login.js' || req.path === '/login.css') {
+    return next();
+  }
+  // All other /admin pages require authentication
+  return adminAuth(req, res, next);
+});
+
 // Serve admin static files
 app.use('/admin', express.static(path.join(__dirname, '../admin')));
 
@@ -88,17 +98,6 @@ app.use('/api/content', require('./routes/content'));
 app.use('/api/blog', require('./routes/blog'));
 app.use('/api/admin', require('./routes/admin'));
 app.use('/api/devto', require('./routes/devto'));
-
-// -------------------- Admin Dashboard --------------------
-app.get('/admin/dashboard.html', requireAdmin, (req, res) => {
-  res.sendFile(path.join(__dirname, '../admin/dashboard.html'));
-});
-
-// Protect all /admin pages except login
-app.use('/admin', (req, res, next) => {
-  if (req.path === '/login.html') return next();
-  return adminAuth(req, res, next);
-});
 
 // -------------------- Public Pages --------------------
 const pageRoutes = [
@@ -116,9 +115,20 @@ pageRoutes.forEach(route => {
     });
 });
 
+// -------------------- Blog Post Detail Pages (Pretty URLs) --------------------
+app.get('/blog/:slug', (req, res) => {
+  console.log('Blog slug route hit:', req.params.slug);
+  res.sendFile(path.join(__dirname, '../public/blog-post-detail.html'));
+});
+
+// -------------------- Admin Pages --------------------
+app.get('/admin', requireAdmin, (req, res) => {
+    res.sendFile(path.join(__dirname, '../admin/dashboard.html'));
+});
+
 // -------------------- SPA Fallback --------------------
 app.use((req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'));
+    res.sendFile(path.join(__dirname, '../public/404.html'));
 });
 
 // -------------------- Start Server --------------------

@@ -38,11 +38,11 @@ class BlogManager {
             const allPostsMap = new Map();
 
             // Normalize Dev.to posts
-            devPosts.forEach(p => allPostsMap.set(`dev-${p.id}`, {
-                id: `dev-${p.id}`,
+            devPosts.forEach(p => allPostsMap.set(p.id, {
+                id: p.id,
                 title: p.title,
                 slug: p.slug,
-                url: `/blog-post.html?id=dev-${p.id}`,
+                url: `/blog/${p.slug}`,  
                 excerpt: p.description || '',
                 content: p.body_html || '',
                 author: p.user?.name || 'Dev.to',
@@ -55,11 +55,11 @@ class BlogManager {
             }));
 
             // Normalize Medium posts
-            mediumPosts.forEach(p => allPostsMap.set(`medium-${p.guid}`, {
-                id: `medium-${p.guid}`,
+            mediumPosts.forEach(p => allPostsMap.set(p.guid, {
+                id: p.guid,
                 title: p.title,
                 slug: p.guid,
-                url: `/blog-post.html?id=medium-${p.guid}`,
+                url: `/blog/${p.guid}`,
                 excerpt: p.description || '',
                 content: p.content || '',
                 author: p.author || 'Medium',
@@ -72,10 +72,9 @@ class BlogManager {
             }));
 
             // Normalize Local posts
-            localPosts.forEach(p => allPostsMap.set(`local-${p.id}`, {
+            localPosts.forEach(p => allPostsMap.set(p.id, {
                 ...p,
-                id: `local-${p.id}`,
-                url: `/blog-post.html?id=local-${p.id}`,
+                url: `/blog/${p.slug}`,
                 source: 'local'
             }));
 
@@ -87,8 +86,7 @@ class BlogManager {
             const localPosts = await fallback.json();
             this.posts = localPosts.map(p => ({
                 ...p,
-                id: `local-${p.id}`,
-                url: `/blog-post.html?id=local-${p.id}`,
+                url: `/blog/${p.slug}`,
                 source: 'local'
             }));
         }
@@ -171,7 +169,7 @@ class BlogManager {
         if (!this.featuredPost) return;
         const el = document.getElementById('featured-post');
         el.innerHTML = `
-        <a href="blog-post.html?id=${this.featuredPost.id}">
+        <a href="/blog/${this.featuredPost.slug}">
             <div class="featured-image">
                 <img src="${this.featuredPost.featuredImage}" alt="${this.featuredPost.title}">
             </div>
@@ -195,7 +193,7 @@ class BlogManager {
 
         container.innerHTML = pagePosts.map(p => `
             <article class="post-card">
-                <a href="blog-post.html?id=${p.id}">
+                <a href="/blog/${p.slug}">
                     <div class="post-image">
                         <img src="${p.featuredImage || '/assets/blog-placeholder.jpg'}" alt="${p.title}">
                     </div>
@@ -232,7 +230,7 @@ class BlogManager {
             .map(p => `
             <div class="popular-post">
                 <img src="${p.featuredImage}">
-                <a href="blog-post.html?id=${p.id}">${p.title}</a>
+                <a href="/blog/${p.slug}">${p.title}</a>
             </div>`).join('');
     }
 
