@@ -216,5 +216,26 @@
     "featured": false,
     "source": "devto",
     "sourceUrl": "https://dev.to/battyterm/how-to-use-git-worktrees-to-run-multiple-ai-agents-on-the-same-repo-1on8"
+  },
+  {
+    "id": 1775543061099,
+    "title": "Git Worktrees: The Secret Weapon You're Not Using",
+    "slug": "git-worktrees-the-secret-weapon-you-re-not-using",
+    "excerpt": "Git worktrees let you check out multiple branches simultaneously in separate directories. No more stashing, no more context switching.",
+    "content": "Git worktrees let you check out multiple branches simultaneously in separate directories. No more stashing, no more context switching.\n\nImported from Dev.to: https://dev.to/battyterm/git-worktrees-the-secret-weapon-youre-not-using-3pdc",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-07",
+    "category": "insights",
+    "tags": [
+      "git",
+      "tutorial",
+      "productivity",
+      "programming"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwd0qzhv3qdziox8z3z89.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/battyterm/git-worktrees-the-secret-weapon-youre-not-using-3pdc"
   }
 ]
