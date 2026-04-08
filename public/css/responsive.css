@@ -1,0 +1,193 @@
+/* MASTER RESPONSIVE CSS - Mobile-First Full Coverage
+   Covers: 320px (iPhone SE) → 1920px+ (4K desktops) */
+
+/* Container Queries & Fluid Scaling */
+.container {
+    padding-left: clamp(1rem, 5vw, 2rem);
+    padding-right: clamp(1rem, 5vw, 2rem);
+    max-width: clamp(1000px, 90vw, 1400px);
+}
+
+/* Fluid Typography Scale */
+h1 { 
+    font-size: clamp(1.75rem, 5vw, 3.5rem); 
+    line-height: 1.1;
+}
+h2 { 
+    font-size: clamp(1.5rem, 4vw, 2.5rem); 
+}
+h3 { 
+    font-size: clamp(1.25rem, 3.5vw, 2rem); 
+}
+body, p {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+}
+
+/* BASE MOBILE (320px - 767px) - Smartphones */
+* {
+    box-sizing: border-box;
+}
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+.navbar .container {
+    padding: 0.75rem clamp(1rem, 5vw, 1.5rem);
+}
+.menu-toggle {
+    display: block;
+}
+.nav-menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+.hero, .page-hero {
+    padding-top: clamp(80px, 20vh, 140px);
+    padding-bottom: 4rem;
+    text-align: center;
+}
+.hero .container, .page-hero .container {
+    grid-template-columns: 1fr;
+}
+
+.btn {
+    min-height: 48px; /* Touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.categories-list {
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: auto;
+    gap: 0.5rem;
+}
+.see-more-btn {
+    width: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* TABLET (768px - 1023px) */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+    }
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+    }
+    .hero .container, .page-hero .container {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+        gap: clamp(2rem, 8vw, 4rem);
+    }
+    .services-grid, .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .blog-layout {
+        grid-template-columns: 2fr 1fr;
+        gap: clamp(2rem, 5vw, 3rem);
+    }
+    #footer .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* DESKTOP (1024px - 1439px) */
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: clamp(2.75rem, 6vw, 4rem);
+    }
+    .services-grid, .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .posts-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+    .blog-layout {
+        grid-template-columns: 2.2fr 1fr;
+        gap: clamp(2.5rem, 4vw, 3.5rem);
+    }
+}
+
+/* LARGE DESKTOP (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1350px;
+    }
+    .services-grid, .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+    .blog-layout {
+        grid-template-columns: 2.5fr 1fr;
+        gap: clamp(3rem, 4vw, 4rem);
+    }
+    #footer .footer-grid {
+        grid-template-columns: 2.5fr 1fr 1fr 1.5fr;
+        gap: 3rem;
+    }
+}
+
+/* EXTRA LARGE (1920px+) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    .hero .container {
+        grid-template-columns: 1fr 1fr;
+        max-width: 1600px;
+    }
+}
+
+/* Print & High DPI */
+@media print {
+    .navbar, .footer { display: none; }
+}
+@media (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 2) {
+    .portfolio-image img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light: #0f172a;
+        --gray-light: #334155;
+    }
+    body { background-color: var(--light); }
+}
+

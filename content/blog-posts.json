@@ -1,241 +1,107 @@
 [
   {
-    "id": 634478633976473500000,
-    "title": "The Importance of Mobile-First Design in 2026",
-    "slug": "mobile-first-design-2026",
-    "excerpt": "Why mobile-first design is crucial for modern websites and how it impacts user experience and SEO.",
-    "content": "Mobile-first design has become essential in today's digital landscape. With over 60% of web traffic coming from mobile devices, prioritizing mobile users is no longer optional. This approach ensures better performance, improved user experience, and higher search rankings. Learn how to implement mobile-first strategies effectively.",
-    "author": "Kaos Tech Team",
-    "publishedAt": "2026-03-15",
-    "category": "insights",
-    "tags": [
-      "mobile",
-      "responsive",
-      "SEO",
-      "UX"
-    ],
-    "featuredImage": "/assets/blog/mobile-first.jpg",
-    "readTime": "5 min read",
-    "featured": true
-  },
-  {
-    "id": 7.663245988633476e+22,
-    "title": "Building Scalable E-commerce Solutions",
-    "slug": "scalable-ecommerce-solutions",
-    "excerpt": "Key considerations for creating e-commerce platforms that can grow with your business.",
-    "content": "Scalable e-commerce solutions require careful planning from the ground up. From choosing the right technology stack to implementing efficient database designs, every decision impacts future growth. This guide covers best practices for building e-commerce platforms that can handle increased traffic and complex product catalogs.",
-    "author": "Kaos Tech Team",
-    "publishedAt": "2026-03-10",
-    "category": "tutorials",
-    "tags": [
-      "ecommerce",
-      "scalability",
-      "technology",
-      "business"
-    ],
-    "featuredImage": "/assets/blog/ecommerce-scale.jpg",
-    "readTime": "7 min read",
-    "featured": false
-  },
-  {
-    "id": 7755423767263,
-    "title": "The Future of Web Development: Trends to Watch",
-    "slug": "web-development-trends-2026",
-    "excerpt": "Exploring emerging technologies and methodologies shaping the future of web development.",
-    "content": "Web development is constantly evolving. From AI-powered development tools to new JavaScript frameworks, staying ahead of trends is crucial. This article explores the most promising developments in web development, including serverless architecture, progressive web apps, and the rise of low-code platforms.",
-    "author": "Kaos Tech Team",
-    "publishedAt": "2026-03-05",
-    "category": "industry",
-    "tags": [
-      "trends",
-      "future",
-      "AI",
-      "PWA"
-    ],
-    "featuredImage": "/assets/blog/web-trends.jpg",
-    "readTime": "6 min read",
-    "featured": false
-  },
-  {
-    "id": 764364562564,
-    "title": "SEO Best Practices for Small Business Websites",
-    "slug": "seo-best-practices-small-business",
-    "excerpt": "Practical SEO strategies that small businesses can implement to improve their online visibility.",
-    "content": "Search engine optimization doesn't have to be complicated. Small businesses can achieve significant improvements with basic SEO practices. This comprehensive guide covers on-page optimization, local SEO, content marketing, and technical SEO fundamentals that every business owner should know.",
-    "author": "Kaos Tech Team",
-    "publishedAt": "2026-02-28",
-    "category": "tutorials",
-    "tags": [
-      "SEO",
-      "small business",
-      "marketing",
-      "visibility"
-    ],
-    "featuredImage": "/assets/blog/seo-small-business.jpg",
-    "readTime": "8 min read",
-    "featured": true
-  },
-  {
-    "id": 7263576834347865,
-    "title": "Securing Your Website: Essential Security Measures",
-    "slug": "website-security-essentials",
-    "excerpt": "Critical security practices to protect your website and customer data from cyber threats.",
-    "content": "Website security is paramount in today's threat landscape. From SSL certificates to regular updates, implementing proper security measures protects both your business and your customers. Learn about essential security practices including HTTPS implementation, regular backups, and vulnerability scanning.",
-    "author": "Kaos Tech Team",
-    "publishedAt": "2026-02-20",
-    "category": "insights",
-    "tags": [
-      "security",
-      "HTTPS",
-      "data protection",
-      "cybersecurity"
-    ],
-    "featuredImage": "/assets/blog/website-security.jpg",
-    "readTime": "6 min read",
-    "featured": false
-  },
-  {
-    "id": 7.673634364365348e+21,
-    "title": "Choosing the Right CMS for Your Business",
-    "slug": "choosing-right-cms",
-    "excerpt": "A guide to selecting the perfect content management system for your specific needs.",
-    "content": "With numerous CMS options available, choosing the right one can be overwhelming. Whether you need a simple blog platform or a complex e-commerce solution, understanding your requirements is key. This article compares popular CMS options and helps you make an informed decision based on your business needs and technical expertise.",
-    "author": "Kaos Tech Team",
-    "publishedAt": "2026-02-15",
-    "category": "tutorials",
-    "tags": [
-      "CMS",
-      "WordPress",
-      "content management",
-      "platforms"
-    ],
-    "featuredImage": "/assets/blog/cms-guide.jpg",
-    "readTime": "5 min read",
-    "featured": true
-  },
-  {
-    "id": 1775462765809,
-    "title": "Why Are We Still Doing GPU Work in JavaScript? (Live WebGPU Benchmark & Demo🚀)",
-    "slug": "why-are-we-still-doing-gpu-work-in-javascript-live-webgpu-benchmark-demo",
-    "excerpt": "JavaScript has been the main language of the web for years. Its popularity probably surprised even...",
-    "content": "JavaScript has been the main language of the web for years. Its popularity probably surprised even...\n\nImported from Dev.to: https://dev.to/sylwia-lask/why-are-we-still-doing-gpu-work-in-javascript-live-webgpu-benchmark-demo-4j6i",
+    "id": 1775634631096,
+    "title": "I Built a Chess Engine with 5 AI Agents — Here's What Surprised Me",
+    "slug": "i-built-a-chess-engine-with-5-ai-agents-here-s-what-surprised-me",
+    "excerpt": "One architect, three engineers, one supervisor. Five AI coding agents built a chess engine in parallel. The results changed how I think about supervised AI agent execution.",
+    "content": "One architect, three engineers, one supervisor. Five AI coding agents built a chess engine in parallel. The results changed how I think about supervised AI agent execution.\n\nImported from Dev.to: https://dev.to/battyterm/i-built-a-chess-engine-with-5-ai-agents-heres-what-surprised-me-1g16",
     "author": "Dev.to Import",
-    "publishedAt": "2026-04-06",
+    "publishedAt": "2026-04-08",
     "category": "insights",
     "tags": [
-      "webdev",
-      "javascript",
-      "typescript",
-      "webgpu"
-    ],
-    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh08eu2tusvx2fr1cavq0.png",
-    "readTime": "1 min read",
-    "featured": false,
-    "source": "local",
-    "sourceUrl": "https://dev.to/sylwia-lask/why-are-we-still-doing-gpu-work-in-javascript-live-webgpu-benchmark-demo-4j6i"
-  },
-  {
-    "id": 1775465394468,
-    "title": "9 Things You’re Overengineering (The Browser Already Solved Them)",
-    "slug": "9-things-you-re-overengineering-the-browser-already-solved-them",
-    "excerpt": "I love writing philosophical essays — thoughts about code, work, all that stuff. I also love deep...",
-    "content": "I love writing philosophical essays — thoughts about code, work, all that stuff. I also love deep...\n\nImported from Dev.to: https://dev.to/sylwia-lask/9-things-youre-overengineering-the-browser-already-solved-them-o99",
-    "author": "Dev.to Import",
-    "publishedAt": "2026-04-06",
-    "category": "insights",
-    "tags": [
-      "webdev",
-      "javascript",
-      "css",
-      "browser"
-    ],
-    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fw1prh2ukqx4wadywbp76.png",
-    "readTime": "1 min read",
-    "featured": false,
-    "source": "devto",
-    "sourceUrl": "https://dev.to/sylwia-lask/9-things-youre-overengineering-the-browser-already-solved-them-o99"
-  },
-  {
-    "id": 1775465401690,
-    "title": "How I Almost Burned Out Doing Everything “Right”",
-    "slug": "how-i-almost-burned-out-doing-everything-right",
-    "excerpt": "Today I wanted to write a philosophical essay about AI. Or maybe something more technical. But once...",
-    "content": "Today I wanted to write a philosophical essay about AI. Or maybe something more technical. But once...\n\nImported from Dev.to: https://dev.to/sylwia-lask/how-i-almost-burned-out-doing-everything-right-31j6",
-    "author": "Dev.to Import",
-    "publishedAt": "2026-04-06",
-    "category": "insights",
-    "tags": [
-      "discuss",
-      "career",
-      "productivity",
-      "mentalhealth"
-    ],
-    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpne08e7s49j3reck4w2t.png",
-    "readTime": "1 min read",
-    "featured": false,
-    "source": "devto",
-    "sourceUrl": "https://dev.to/sylwia-lask/how-i-almost-burned-out-doing-everything-right-31j6"
-  },
-  {
-    "id": 1775465423827,
-    "title": "The Real Skill in Programming Is Debugging. Everything Else Is Copy-Paste",
-    "slug": "the-real-skill-in-programming-is-debugging-everything-else-is-copy-paste",
-    "excerpt": "I have a feeling this statement is even more true in the age of AI and coding agents. Sure, today we...",
-    "content": "I have a feeling this statement is even more true in the age of AI and coding agents. Sure, today we...\n\nImported from Dev.to: https://dev.to/sylwia-lask/the-real-skill-in-programming-is-debugging-everything-else-is-copy-paste-i39",
-    "author": "Dev.to Import",
-    "publishedAt": "2026-04-06",
-    "category": "insights",
-    "tags": [
-      "webdev",
-      "discuss",
+      "ai",
+      "rust",
+      "opensource",
       "programming"
     ],
-    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fp9dibumt3eb5j71q19l7.png",
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fs9ukawwrl6dqqfj4oqb4.png",
     "readTime": "1 min read",
     "featured": false,
     "source": "devto",
-    "sourceUrl": "https://dev.to/sylwia-lask/the-real-skill-in-programming-is-debugging-everything-else-is-copy-paste-i39"
+    "sourceUrl": "https://dev.to/battyterm/i-built-a-chess-engine-with-5-ai-agents-heres-what-surprised-me-1g16"
   },
   {
-    "id": 1775466172917,
-    "title": "How to Use Git Worktrees to Run Multiple AI Agents on the Same Repo",
-    "slug": "how-to-use-git-worktrees-to-run-multiple-ai-agents-on-the-same-repo",
-    "excerpt": "AI agents working on the same repo stomp on each other. Git worktrees fix this by giving each agent its own directory and branch. Step-by-step setup.",
-    "content": "AI agents working on the same repo stomp on each other. Git worktrees fix this by giving each agent its own directory and branch. Step-by-step setup.\n\nImported from Dev.to: https://dev.to/battyterm/how-to-use-git-worktrees-to-run-multiple-ai-agents-on-the-same-repo-1on8",
+    "id": 1775634638154,
+    "title": "Why a Markdown File Beats a Message Bus",
+    "slug": "why-a-markdown-file-beats-a-message-bus",
+    "excerpt": "Agent coordination frameworks use O(n²) peer messaging. A markdown kanban board achieves O(1) reads. Here's how kanban-driven task dispatch works for AI coding agents — and why it's simpler than you think.",
+    "content": "Agent coordination frameworks use O(n²) peer messaging. A markdown kanban board achieves O(1) reads. Here's how kanban-driven task dispatch works for AI coding agents — and why it's simpler than you think.\n\nImported from Dev.to: https://dev.to/battyterm/why-a-markdown-file-beats-a-message-bus-4p4o",
     "author": "Dev.to Import",
-    "publishedAt": "2026-04-06",
+    "publishedAt": "2026-04-08",
     "category": "insights",
     "tags": [
-      "git",
       "ai",
-      "tutorial",
+      "devtools",
+      "opensource",
       "productivity"
     ],
-    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fraw.githubusercontent.com%2Fbattysh%2Fbatty%2Fmain%2Fassets%2Fsocial%2Fdevto-worktree-tutorial-header.png",
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhkkplya3u6yuk2rfed88.png",
     "readTime": "1 min read",
     "featured": false,
     "source": "devto",
-    "sourceUrl": "https://dev.to/battyterm/how-to-use-git-worktrees-to-run-multiple-ai-agents-on-the-same-repo-1on8"
+    "sourceUrl": "https://dev.to/battyterm/why-a-markdown-file-beats-a-message-bus-4p4o"
   },
   {
-    "id": 1775543061099,
-    "title": "Git Worktrees: The Secret Weapon You're Not Using",
-    "slug": "git-worktrees-the-secret-weapon-you-re-not-using",
-    "excerpt": "Git worktrees let you check out multiple branches simultaneously in separate directories. No more stashing, no more context switching.",
-    "content": "Git worktrees let you check out multiple branches simultaneously in separate directories. No more stashing, no more context switching.\n\nImported from Dev.to: https://dev.to/battyterm/git-worktrees-the-secret-weapon-youre-not-using-3pdc",
+    "id": 1775634646214,
+    "title": "How I Run a Team of AI Coding Agents in Parallel",
+    "slug": "how-i-run-a-team-of-ai-coding-agents-in-parallel",
+    "excerpt": "Running one AI coding agent is productive. Running five in parallel is chaos — unless you have a supervisor. Here's the setup I use to orchestrate multiple Claude Code agents on real projects.",
+    "content": "Running one AI coding agent is productive. Running five in parallel is chaos — unless you have a supervisor. Here's the setup I use to orchestrate multiple Claude Code agents on real projects.\n\nImported from Dev.to: https://dev.to/battyterm/how-i-run-a-team-of-ai-coding-agents-in-parallel-p7c",
     "author": "Dev.to Import",
-    "publishedAt": "2026-04-07",
+    "publishedAt": "2026-04-08",
     "category": "insights",
     "tags": [
-      "git",
-      "tutorial",
+      "ai",
+      "productivity",
+      "rust",
+      "codingagents"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2xfgxepfnf3t0dejt7wr.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/battyterm/how-i-run-a-team-of-ai-coding-agents-in-parallel-p7c"
+  },
+  {
+    "id": 1775634654854,
+    "title": "Choosing an AI Agent Orchestrator in 2026: A Practical Comparison",
+    "slug": "choosing-an-ai-agent-orchestrator-in-2026-a-practical-comparison",
+    "excerpt": "Batty, vibe-kanban, CrewAI, AutoGen, or raw tmux scripts? Each solves multi-agent coordination differently. Here's an honest comparison to help you pick the right one.",
+    "content": "Batty, vibe-kanban, CrewAI, AutoGen, or raw tmux scripts? Each solves multi-agent coordination differently. Here's an honest comparison to help you pick the right one.\n\nImported from Dev.to: https://dev.to/battyterm/choosing-an-ai-agent-orchestrator-in-2026-a-practical-comparison-cdl",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-08",
+    "category": "insights",
+    "tags": [
+      "ai",
+      "devtools",
       "productivity",
       "programming"
     ],
-    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwd0qzhv3qdziox8z3z89.png",
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1b1a8axhe7rcaxhzguhq.png",
     "readTime": "1 min read",
     "featured": false,
     "source": "devto",
-    "sourceUrl": "https://dev.to/battyterm/git-worktrees-the-secret-weapon-youre-not-using-3pdc"
+    "sourceUrl": "https://dev.to/battyterm/choosing-an-ai-agent-orchestrator-in-2026-a-practical-comparison-cdl"
+  },
+  {
+    "id": 1775637116888,
+    "title": "What do you want to know about hardware acceleration? Ask the Google team!",
+    "slug": "what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team",
+    "excerpt": "Each week, we collect community questions for the team at Google to answer on their weekly...",
+    "content": "Each week, we collect community questions for the team at Google to answer on their weekly...\n\nImported from Dev.to: https://dev.to/devteam/what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team-3nj0",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-08",
+    "category": "insights",
+    "tags": [
+      "discuss",
+      "datascience",
+      "analytics",
+      "gpu"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fp59bt17y3asv0edfxpkj.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/devteam/what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team-3nj0"
   }
 ]

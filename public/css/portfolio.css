@@ -157,12 +157,7 @@
 
 /* Stats, Case Study, Testimonials, Modal - left completely untouched */
 
-/* Responsive tweaks for portfolio grid only */
-@media (max-width: 992px) {
-    .portfolio-container {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-}
+/* Responsive handled by master responsive.css */
 @media (max-width: 768px) {
     .portfolio-container {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -367,9 +362,5 @@
     color: var(--primary);
 }
 
-@media (max-width: 768px) {
-    .portfolio-stats {
-        grid-template-columns: 1fr;
-    }
-}
+/* Responsive handled by master responsive.css */
 

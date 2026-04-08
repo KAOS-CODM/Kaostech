@@ -128,8 +128,32 @@ function renderFeaturedCaseStudy(project) {
     `;
 }
 
+// Mobile Navigation Toggle
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    navMenu.classList.toggle('open');
+    menuToggle.classList.toggle('open');
+}
+
+// Close menu when clicking link
+document.addEventListener('click', (e) => {
+    if (e.target.matches('.nav-link')) {
+        const navMenu = document.querySelector('.nav-menu');
+        const menuToggle = document.querySelector('.menu-toggle');
+        navMenu.classList.remove('open');
+        menuToggle.classList.remove('open');
+    }
+});
+
 // Load all dynamic content
 document.addEventListener('DOMContentLoaded', () => {
+    // Navigation toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMobileMenu);
+    }
+
     loadJSONContent('/content/footer.json', 'footer', renderFooter);
     loadJSONContent('/content/services.json', 'services-container', renderServices);
     loadJSONContent('/content/portfolio.json', 'portfolio-container', renderPortfolio);
@@ -146,3 +170,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('current-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
+

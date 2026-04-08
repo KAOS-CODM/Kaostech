@@ -33,7 +33,7 @@ class BlogManager {
             const mediumPosts = mediumRes.ok ? (await mediumRes.json()).items : [];
 
             // Fetch local JSON posts
-            const localRes = await fetch('/content/blog-posts.json');
+            const localRes = await fetch(`/content/blog-posts.json?_=${Date.now()}`);
             const localPosts = await localRes.json();
 
             const allPostsMap = new Map();
@@ -83,7 +83,7 @@ class BlogManager {
 
         } catch (err) {
             console.warn('⚠️ Blog fetch failed, using local JSON only');
-            const fallback = await fetch('/content/blog-posts.json');
+            const fallback = await fetch(`/content/blog-posts.json?_=${Date.now()}`);
             const localPosts = await fallback.json();
             this.posts = localPosts.map(p => ({
                 ...p,
@@ -136,6 +136,28 @@ class BlogManager {
         return map[category] || category;
     }
 
+    setupTagToggles() {
+        document.querySelectorAll('.tags-toggle').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const container = btn.closest('.tags-container');
+                const hiddenTags = JSON.parse(btn.dataset.tags);
+                
+                hiddenTags.forEach(tag => {
+                    const span = document.createElement('span');
+                    span.className = 'post-tag';
+                    span.textContent = tag;
+                    container.appendChild(span);
+                });
+                
+                btn.remove();
+                container.style.flexWrap = 'wrap';
+            });
+        });
+    }
+
     setupEventListeners() {
         document.querySelectorAll('.filter-tab').forEach(tab => {
             tab.addEventListener('click', e => {
@@ -157,6 +179,7 @@ class BlogManager {
             });
         }
     }
+
 
     getFilteredPosts() {
         let posts = [...this.posts];
@@ -198,6 +221,25 @@ class BlogManager {
         </a>`;
     }
 
+    renderTags(tags) {
+        const maxVisible = 5;
+        if (!tags || tags.length === 0) return '<span class="no-tags">No tags</span>';
+        
+        const visibleTags = tags.slice(0, maxVisible);
+        const hiddenTags = tags.slice(maxVisible);
+        
+        if (hiddenTags.length === 0) {
+            return visibleTags.map(tag => `<span class="post-tag">${tag}</span>`).join('');
+        }
+        
+        return `
+            <div class="tags-container">
+                ${visibleTags.map(tag => `<span class="post-tag">${tag}</span>`).join('')}
+                <button class="tags-toggle" data-tags='${JSON.stringify(hiddenTags)}'>+${hiddenTags.length}</button>
+            </div>
+        `;
+    }
+
     renderPosts() {
         const container = document.getElementById('posts-container');
         const posts = this.getFilteredPosts();
@@ -211,28 +253,73 @@ class BlogManager {
                         <img src="${p.featuredImage || '/assets/blog-placeholder.jpg'}" alt="${p.title}">
                     </div>
                     <div class="post-content">
-                        <span class="post-category">
-                            ${p.tags && p.tags.length ? this.formatCategoryName(p.tags[0]) : 'General'}
-                        </span>
+                        <div class="post-tags">
+                            ${this.renderTags(p.tags || [])}
+                        </div>
                         <h3>${p.title}</h3>
                         <p class="post-excerpt">${p.excerpt}</p>
                     </div>
                 </a>
             </article>
         `).join('');
+
+        this.setupTagToggles();
     }
 
-    renderCategories() {
+
+renderCategories() {
         const el = document.getElementById('categories-list');
         if (!el) return;
 
-        el.innerHTML = Object.entries(this.categories).map(([k, v]) => `
-        <li>
-            <a href="#" data-category="${k}">
-                <span>${v.name}</span>
-                <span class="category-count">${v.count}</span>
-            </a>
-        </li>`).join('');
+        const allEntries = Object.entries(this.categories);
+        const sortedEntries = allEntries
+            .filter(([,v]) => v && v.count !== undefined)
+            .sort(([,a], [,b]) => (b.count || 0) - (a.count || 0));
+        
+        const visibleEntries = sortedEntries.slice(0, 10);
+        const hiddenKeys = sortedEntries.slice(10).map(([k]) => k);
+
+        let html = visibleEntries.map(([k, v]) => `
+            <li>
+                <a href="#" data-category="${k}" class="category-link">
+                    <span>${v.name}</span>
+                    <span class="category-count">${v.count}</span>
+                </a>
+            </li>
+        `).join('');
+
+        if (hiddenKeys.length > 0) {
+            html += `
+                <li class="see-more-item">
+                    <button class="see-more-btn" data-type="categories" data-hidden='${JSON.stringify(hiddenKeys)}'>
+                        See more categories (${hiddenKeys.length})
+                    </button>
+                </li>
+            `;
+        }
+
+        el.innerHTML = html;
+
+        // Setup events
+        this.setupCategoryEvents(el);
+        this.setupSeeMoreToggles(el);
+    }
+
+    setupCategoryEvents(container) {
+        container.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const category = e.target.closest('a').dataset.category;
+                this.currentCategory = category;
+                this.currentPage = 1;
+                this.renderPosts();
+                
+                // Update active state in filter tabs too
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                const matchingTab = document.querySelector(`.filter-tab[data-category="${category}"]`);
+                if (matchingTab) matchingTab.classList.add('active');
+            });
+        });
     }
 
     renderPopularPosts() {
@@ -249,19 +336,39 @@ class BlogManager {
             </div>`).join('');
     }
 
-    renderFilterTabs() {
+renderFilterTabs() {
         const container = document.querySelector('.filter-tabs');
         if (!container) return;
 
-        const tabs = Object.keys(this.categories);
+        const allTabs = Object.keys(this.categories);
+        const visibleTabs = allTabs.slice(0, 5);
+        const hiddenTabs = allTabs.slice(5);
 
-        container.innerHTML = tabs.map(cat => `
-            <button class="filter-tab ${cat === 'all' ? 'active' : ''}" data-category="${cat}">
-                ${this.categories[cat].name}
-            </button>
-        `).join('');
+        let html = '';
+        if (visibleTabs.length > 0) {
+            html = visibleTabs.map(cat => `
+                <button class="filter-tab ${cat === 'all' ? 'active' : ''}" data-category="${cat}">
+                    ${this.categories[cat].name}
+                </button>
+            `).join('');
+        }
 
-        // rebind events
+        if (hiddenTabs.length > 0) {
+            html += `
+                <button class="see-more-btn" data-type="filter" data-hidden='${JSON.stringify(hiddenTabs)}'>
+                    See more (${hiddenTabs.length})
+                </button>
+            `;
+        }
+
+        container.innerHTML = html;
+
+        // Rebind all events
+        this.setupSeeMoreToggles(container);
+        this.setupFilterEvents(container);
+    }
+
+    setupFilterEvents(container) {
         container.querySelectorAll('.filter-tab').forEach(tab => {
             tab.addEventListener('click', e => {
                 this.currentCategory = e.target.dataset.category;
@@ -271,6 +378,39 @@ class BlogManager {
                 e.target.classList.add('active');
 
                 this.renderPosts();
+            });
+        });
+    }
+
+    setupSeeMoreToggles(container) {
+        const seeMoreBtns = container ? container.querySelectorAll('.see-more-btn') : document.querySelectorAll('.see-more-btn');
+        seeMoreBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const hidden = JSON.parse(btn.dataset.hidden);
+                const type = btn.dataset.type;
+                const nextBatch = hidden.slice(0, 5);
+                const remaining = hidden.slice(5);
+
+                // Add next 5
+                nextBatch.forEach(item => {
+                    const button = document.createElement('button');
+                    button.className = 'filter-tab';
+                    button.dataset.category = item;
+                    button.textContent = this.categories[item].name;
+                    container.insertBefore(button, btn);
+                });
+
+                // Update or remove button
+                if (remaining.length > 0) {
+                    btn.dataset.hidden = JSON.stringify(remaining);
+                    btn.textContent = `See more (${remaining.length})`;
+                } else {
+                    btn.remove();
+                }
+
+                // Rebind events
+                this.setupFilterEvents(container);
             });
         });
     }

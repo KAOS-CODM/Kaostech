@@ -29,7 +29,7 @@ app.use(
         scriptSrc: ["'self'", "https://cdnjs.cloudflare.com"],
         styleSrc: ["'self'", "https://fonts.googleapis.com", "https://cdnjs.cloudflare.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
-        connectSrc: ["'self'"], // your API is local now
+        connectSrc: ["'self'", "https://dev.to", "https://api.rss2json.com"],
         imgSrc: ["'self'", 'https:', 'data:'],
       },
     },
@@ -73,7 +73,7 @@ app.use(express.static(path.join(__dirname, '../public'), {
     }
 }));
 app.use('/content', express.static(path.join(__dirname, '../content'), {
-    maxAge: '1h'
+    maxAge: '5m'
 }));
 
 // -------------------- Admin Protection --------------------
