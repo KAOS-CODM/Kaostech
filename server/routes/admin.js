@@ -38,4 +38,69 @@ router.post('/logout', requireAdmin, (req, res) => {
   });
 });
 
+const fs = require('fs');
+const path = require('path');
+
+/* Admin Quotes API */
+const QUOTES_FILE = path.join(__dirname, '../../content/fallback-quotes.json');
+
+// GET all quotes
+router.get('/quotes', requireAdmin, (req, res) => {
+  try {
+    let quotes = [];
+    if (fs.existsSync(QUOTES_FILE)) {
+      const data = fs.readFileSync(QUOTES_FILE, 'utf-8');
+      quotes = JSON.parse(data);
+    }
+    res.json(quotes);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to read quotes' });
+  }
+});
+
+// DELETE quote by index
+router.delete('/quotes/:index', requireAdmin, (req, res) => {
+  const index = parseInt(req.params.index);
+  try {
+    let quotes = [];
+    if (fs.existsSync(QUOTES_FILE)) {
+      const data = fs.readFileSync(QUOTES_FILE, 'utf-8');
+      quotes = JSON.parse(data);
+    }
+    
+    if (index >= 0 && index < quotes.length) {
+      quotes.splice(index, 1);
+      fs.writeFileSync(QUOTES_FILE, JSON.stringify(quotes, null, 2));
+      res.json({ message: 'Quote deleted' });
+    } else {
+      res.status(404).json({ error: 'Quote not found' });
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to delete quote' });
+  }
+});
+
+// PUT mark quote as read
+router.put('/quotes/:index/read', requireAdmin, (req, res) => {
+  const index = parseInt(req.params.index);
+  try {
+    let quotes = [];
+    if (fs.existsSync(QUOTES_FILE)) {
+      const data = fs.readFileSync(QUOTES_FILE, 'utf-8');
+      quotes = JSON.parse(data);
+    }
+    
+    if (index >= 0 && index < quotes.length) {
+      quotes[index].read = true;
+      quotes[index].readAt = new Date().toISOString();
+      fs.writeFileSync(QUOTES_FILE, JSON.stringify(quotes, null, 2));
+      res.json({ message: 'Quote marked as read' });
+    } else {
+      res.status(404).json({ error: 'Quote not found' });
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to mark as read' });
+  }
+});
+
 module.exports = router;

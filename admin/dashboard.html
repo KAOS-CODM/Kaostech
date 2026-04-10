@@ -10,125 +10,190 @@
   <link rel="stylesheet" href="/admin/dashboard.css">
 </head>
 <body>
-  <div class="container">
+
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2 class="logo">KaosTech</h2>
+    <nav>
+      <button class="nav-item active" data-tab="blogs">📝 Blogs</button>
+      <button class="nav-item" data-tab="leads">📊 Leads</button>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
     <h1>Admin Dashboard</h1>
 
-    <h2 id="formTitle">Add Blog</h2>
-    <form id="addBlogForm">
-      <div class="form-group">
-        <input id="blogTitle" placeholder="Blog Title" required />
+    <!-- STATS -->
+    <div class="stats">
+      <div class="stat-card">
+        <h3>Total Blogs</h3>
+        <p id="totalBlogs">0</p>
       </div>
-      <div class="form-group">
-        <textarea id="blogExcerpt" placeholder="Excerpt (short description)" rows="2"></textarea>
-      </div>
-      <div class="form-group">
-        <textarea id="blogContent" placeholder="Blog Content" rows="8" required></textarea>
-      </div>
-      <div class="form-group">
-        <select id="blogCategory">
-          <option value="insights">Insights</option>
-          <option value="tutorials">Tutorials</option>
-          <option value="industry">Industry News</option>
-          <option value="case-studies">Case Studies</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <input id="blogTags" placeholder="Tags (comma-separated)" />
-      </div>
-      <div class="form-group">
-        <input id="blogFeaturedImage" placeholder="Featured Image URL" value="/assets/blog/default.jpg" />
-      </div>
-      <div class="form-group">
-        <label>
-          <input type="checkbox" id="blogFeatured" /> Featured Post
-        </label>
-      </div>
-      <div class="form-actions">
-        <button type="submit" id="submitBtn">Add Blog</button>
-        <button type="button" id="cancelBtn" style="display: none;">Cancel</button>
-      </div>
-      <input type="hidden" id="blogSource" value="local" />
-      <input type="hidden" id="blogSourceUrl" />
-    </form>
 
-    <h2>Import Dev.to Posts</h2>
-    <section id="devtoImportSection" class="devto-import">
-      <div class="form-group">
+      <div class="stat-card">
+        <h3>Total Leads</h3>
+        <p id="leadsCount">0 leads</p>
+      </div>
+
+      <div class="stat-card">
+        <h3>Unread Leads</h3>
+        <p id="unreadLeads">0</p>
+      </div>
+    </div>
+
+    <!-- BLOG SECTION -->
+    <section id="blogsSection" class="tab-content active">
+
+      <h2 id="formTitle">Add Blog</h2>
+
+      <form id="addBlogForm">
+        <div class="form-group">
+          <input id="blogTitle" placeholder="Blog Title" required />
+        </div>
+
+        <div class="form-group">
+          <textarea id="blogExcerpt" placeholder="Excerpt" rows="2"></textarea>
+        </div>
+
+        <div class="form-group">
+          <textarea id="blogContent" placeholder="Blog Content" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <select id="blogCategory">
+            <option value="insights">Insights</option>
+            <option value="tutorials">Tutorials</option>
+            <option value="industry">Industry News</option>
+            <option value="case-studies">Case Studies</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input id="blogTags" placeholder="Tags (comma-separated)" />
+        </div>
+
+        <div class="form-group">
+          <input id="blogFeaturedImage" value="/assets/blog/default.jpg" />
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="blogFeatured" /> Featured Post
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submitBtn">Add Blog</button>
+          <button type="button" id="cancelBtn">Cancel</button>
+        </div>
+
+        <input type="hidden" id="blogSource" value="local" />
+        <input type="hidden" id="blogSourceUrl" />
+      </form>
+
+      <!-- DEVTO -->
+      <section class="devto-import">
+        <h2>Import Dev.to Posts</h2>
+
         <input id="devtoUsernameInput" placeholder="Dev.to username" />
+
+        <div class="devto-controls">
+          <button type="button" id="fetchDevtoBtn">Fetch</button>
+          <button type="button" id="saveDevtoUsernameBtn">Save</button>
+        </div>
+
+        <select id="savedDevtoUsernames"></select>
+
+        <div id="devtoMessage" class="info-message"></div>
+        <div id="devtoPostsContainer" class="devto-posts-container"></div>
+      </section>
+
+      <!-- BLOG TABLE -->
+      <h2>Existing Blogs</h2>
+
+      <div class="table-controls">
+        <div class="search-filter">
+          <input id="searchInput" placeholder="Search blogs..." />
+          <select id="categoryFilter"></select>
+          <select id="featuredFilter"></select>
+        </div>
+
+        <div class="bulk-actions">
+          <button id="bulkDeleteBtn">Delete Selected</button>
+          <button id="selectAllBtn">Select All</button>
+        </div>
       </div>
-      <div class="form-group devto-controls">
-        <button type="button" id="fetchDevtoBtn">Fetch Dev.to Posts</button>
-        <button type="button" id="saveDevtoUsernameBtn">Save Username</button>
-      </div>
-      <div class="form-group">
-        <select id="savedDevtoUsernames">
-          <option value="">Select saved username</option>
-        </select>
-      </div>
-      <div id="devtoMessage" class="info-message">Enter a Dev.to username to preview posts, then import them into the blog form.</div>
-      <div id="devtoPostsContainer" class="devto-posts-container"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="selectAllCheckbox" /></th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Featured</th>
+            <th>Published</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="blogTable"></tbody>
+      </table>
+
     </section>
 
-    <h2>Existing Blogs</h2>
-    <div class="table-controls">
-      <div class="search-filter">
-        <input type="text" id="searchInput" placeholder="Search blogs..." />
-        <select id="categoryFilter">
-          <option value="">All Categories</option>
-          <option value="insights">Insights</option>
-          <option value="tutorials">Tutorials</option>
-          <option value="industry">Industry News</option>
-          <option value="case-studies">Case Studies</option>
-        </select>
-        <select id="featuredFilter">
-          <option value="">All Posts</option>
-          <option value="true">Featured Only</option>
-          <option value="false">Non-Featured</option>
-        </select>
-      </div>
-      <div class="bulk-actions" style="display: none;">
-        <button id="bulkDeleteBtn">Delete Selected</button>
-        <button id="selectAllBtn">Select All</button>
-      </div>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th><input type="checkbox" id="selectAllCheckbox" /></th>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Category</th>
-          <th>Featured</th>
-          <th>Published</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="blogTable">
-        <!-- Blogs will load here -->
-      </tbody>
-    </table>
-  </div>
+    <!-- LEADS SECTION -->
+    <section id="leadsSection" class="tab-content">
 
-  <!-- Preview Modal -->
-  <div id="previewModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 id="modalTitle"></h3>
-        <span class="modal-close">&times;</span>
-      </div>
-      <div class="modal-body">
-        <div class="blog-meta">
-          <span id="modalAuthor"></span> • 
-          <span id="modalDate"></span> • 
-          <span id="modalCategory"></span> • 
-          <span id="modalReadTime"></span>
+      <h2>Client Leads</h2>
+
+      <div class="table-controls">
+        <div class="leads-controls">
+          <button id="refreshLeadsBtn" class="btn-refresh">Refresh</button>
+          <span id="leadsCount">0 leads</span>
         </div>
-        <div id="modalExcerpt"></div>
-        <div id="modalContent"></div>
       </div>
+
+      <table id="leadsTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Company</th>
+            <th>Project</th>
+            <th>Budget</th>
+            <th>Timeline</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="leadsTableBody"></tbody>
+      </table>
+
+    </section>
+
+  </main>
+
+</div>
+
+<!-- MODAL -->
+<div id="previewModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle"></h3>
+      <span class="modal-close">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div id="modalExcerpt"></div>
+      <div id="modalContent"></div>
     </div>
   </div>
+</div>
 
-  <script src="/admin/dashboard.js"></script>
+<script src="/admin/dashboard.js"></script>
 </body>
 </html>

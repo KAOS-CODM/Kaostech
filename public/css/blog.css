@@ -37,8 +37,8 @@
     }
 }
 
-.blog-main { order: 2; }
-.blog-sidebar { order: 1; }
+.blog-main { order: 1; }
+.blog-sidebar { order: 2; }
 
 /* ================= FEATURED POST ================= */
 

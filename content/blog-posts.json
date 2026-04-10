@@ -21,27 +21,6 @@
     "sourceUrl": "https://dev.to/battyterm/i-built-a-chess-engine-with-5-ai-agents-heres-what-surprised-me-1g16"
   },
   {
-    "id": 1775634638154,
-    "title": "Why a Markdown File Beats a Message Bus",
-    "slug": "why-a-markdown-file-beats-a-message-bus",
-    "excerpt": "Agent coordination frameworks use O(n²) peer messaging. A markdown kanban board achieves O(1) reads. Here's how kanban-driven task dispatch works for AI coding agents — and why it's simpler than you think.",
-    "content": "Agent coordination frameworks use O(n²) peer messaging. A markdown kanban board achieves O(1) reads. Here's how kanban-driven task dispatch works for AI coding agents — and why it's simpler than you think.\n\nImported from Dev.to: https://dev.to/battyterm/why-a-markdown-file-beats-a-message-bus-4p4o",
-    "author": "Dev.to Import",
-    "publishedAt": "2026-04-08",
-    "category": "insights",
-    "tags": [
-      "ai",
-      "devtools",
-      "opensource",
-      "productivity"
-    ],
-    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhkkplya3u6yuk2rfed88.png",
-    "readTime": "1 min read",
-    "featured": false,
-    "source": "devto",
-    "sourceUrl": "https://dev.to/battyterm/why-a-markdown-file-beats-a-message-bus-4p4o"
-  },
-  {
     "id": 1775634646214,
     "title": "How I Run a Team of AI Coding Agents in Parallel",
     "slug": "how-i-run-a-team-of-ai-coding-agents-in-parallel",
@@ -91,6 +70,110 @@
     "content": "Each week, we collect community questions for the team at Google to answer on their weekly...\n\nImported from Dev.to: https://dev.to/devteam/what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team-3nj0",
     "author": "Dev.to Import",
     "publishedAt": "2026-04-08",
+    "category": "insights",
+    "tags": [
+      "discuss",
+      "datascience",
+      "analytics",
+      "gpu"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fp59bt17y3asv0edfxpkj.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/devteam/what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team-3nj0"
+  },
+  {
+    "id": 1775721604726,
+    "title": "I checked 13 top open-source repos. 9 have zero AI agent config.",
+    "slug": "i-checked-13-top-open-source-repos-9-have-zero-ai-agent-config",
+    "excerpt": "Django. Angular. Vue. Svelte. Tokio. Remix. Cal.com. Airflow. Tauri.  None of them have a CLAUDE.md....",
+    "content": "Django. Angular. Vue. Svelte. Tokio. Remix. Cal.com. Airflow. Tauri.  None of them have a CLAUDE.md....\n\nImported from Dev.to: https://dev.to/whitehatd/i-checked-13-top-open-source-repos-9-have-zero-ai-agent-config-51k0",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-09",
+    "category": "insights",
+    "tags": [
+      "opensource",
+      "ai",
+      "cli",
+      "productivity"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F2f4nw6rab5widik8fkw3.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/whitehatd/i-checked-13-top-open-source-repos-9-have-zero-ai-agent-config-51k0"
+  },
+  {
+    "id": 1775721623757,
+    "title": "I stopped copy-pasting my lint rules into 12 different config files",
+    "slug": "i-stopped-copy-pasting-my-lint-rules-into-12-different-config-files",
+    "excerpt": "Every project I work on has the same problem: my lint/test/build rules exist in my CI workflow, my...",
+    "content": "Every project I work on has the same problem: my lint/test/build rules exist in my CI workflow, my...\n\nImported from Dev.to: https://dev.to/whitehatd/i-stopped-copy-pasting-my-lint-rules-into-12-different-config-files-13b2",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-09",
+    "category": "insights",
+    "tags": [
+      "automation",
+      "productivity",
+      "showdev",
+      "tooling"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fflxegcpwir7glun95627.png",
+    "readTime": "1 min read",
+    "featured": true,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/whitehatd/i-stopped-copy-pasting-my-lint-rules-into-12-different-config-files-13b2"
+  },
+  {
+    "id": 1775721659753,
+    "title": "The Email That Nearly Stopped Me From Becoming a Developer",
+    "slug": "the-email-that-nearly-stopped-me-from-becoming-a-developer",
+    "excerpt": "This is a submission for the 2026 WeCoded Challenge: Echoes of Experience  I stood on stage in front...",
+    "content": "This is a submission for the 2026 WeCoded Challenge: Echoes of Experience  I stood on stage in front...\n\nImported from Dev.to: https://dev.to/sylwia-lask/the-email-that-nearly-stopped-me-from-becoming-a-developer-3n77",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-09",
+    "category": "insights",
+    "tags": [
+      "devchallenge",
+      "wecoded",
+      "dei",
+      "career"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F14xc3tgw5tcinttm7opd.png",
+    "readTime": "1 min read",
+    "featured": true,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/sylwia-lask/the-email-that-nearly-stopped-me-from-becoming-a-developer-3n77"
+  },
+  {
+    "id": 1775721683781,
+    "title": "16 Modern JavaScript Features That Might Blow Your Mind",
+    "slug": "16-modern-javascript-features-that-might-blow-your-mind",
+    "excerpt": "Ah, what a time to be alive! As usual, I’ve taken way too much on my plate — there were just too many...",
+    "content": "Ah, what a time to be alive! As usual, I’ve taken way too much on my plate — there were just too many...\n\nImported from Dev.to: https://dev.to/sylwia-lask/16-modern-javascript-features-that-might-blow-your-mind-4h5e",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-09",
+    "category": "insights",
+    "tags": [
+      "javascript",
+      "frontend",
+      "node"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fyjzh12zqv3319wo4c4qk.png",
+    "readTime": "1 min read",
+    "featured": true,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/sylwia-lask/16-modern-javascript-features-that-might-blow-your-mind-4h5e"
+  },
+  {
+    "id": 1775812750068,
+    "title": "What do you want to know about hardware acceleration? Ask the Google team!",
+    "slug": "what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team",
+    "excerpt": "Each week, we collect community questions for the team at Google to answer on their weekly...",
+    "content": "Each week, we collect community questions for the team at Google to answer on their weekly...\n\nImported from Dev.to: https://dev.to/devteam/what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team-3nj0",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-10",
     "category": "insights",
     "tags": [
       "discuss",

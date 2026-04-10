@@ -85,7 +85,7 @@ router.get('/slug/:slug', (req, res) => {
 });
 
 // GET blog by ID
-router.get('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const blogId = Number(req.params.id);
   try {
     let blogs = readBlogs();
