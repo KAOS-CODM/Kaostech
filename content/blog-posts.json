@@ -186,5 +186,24 @@
     "featured": false,
     "source": "devto",
     "sourceUrl": "https://dev.to/devteam/what-do-you-want-to-know-about-hardware-acceleration-ask-the-google-team-3nj0"
+  },
+  {
+    "id": 1775814682326,
+    "title": "You’re a Real Software Developer Only If…",
+    "slug": "you-re-a-real-software-developer-only-if",
+    "excerpt": "Uff, I’m finally done with my talk at jsDay 2026!  And honestly? It went at least good. People showed...",
+    "content": "Uff, I’m finally done with my talk at jsDay 2026!  And honestly? It went at least good. People showed...\n\nImported from Dev.to: https://dev.to/sylwia-lask/youre-a-real-software-developer-only-if-2mo8",
+    "author": "Dev.to Import",
+    "publishedAt": "2026-04-10",
+    "category": "insights",
+    "tags": [
+      "jokes",
+      "devlive"
+    ],
+    "featuredImage": "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fbx3ovkqtotxp9i4biy5b.png",
+    "readTime": "1 min read",
+    "featured": false,
+    "source": "devto",
+    "sourceUrl": "https://dev.to/sylwia-lask/youre-a-real-software-developer-only-if-2mo8"
   }
 ]

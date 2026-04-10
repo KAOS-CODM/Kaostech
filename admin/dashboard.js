@@ -2,6 +2,28 @@
 // Full Unified Dashboard JS - Blogs + Leads + Dev.to
 // =====================================================
 
+// ===== SIMPLE TOAST FUNCTION =====
+function showToast(msg, type = 'info') {
+  const toast = document.createElement('div');
+  toast.textContent = msg;
+  toast.style.cssText = `
+    position: fixed; top: 20px; right: 20px; z-index: 9999;
+    background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
+    color: white; padding: 12px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transform: translateX(400px); opacity: 0; transition: all 0.3s ease; max-width: 350px;
+  `;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => {
+    toast.style.transform = 'translateX(0)';
+    toast.style.opacity = '1';
+  });
+  setTimeout(() => {
+    toast.style.transform = 'translateX(400px)';
+    toast.style.opacity = '0';
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
+
 // ===== GLOBAL VARIABLES =====
 let allBlogs = [];
 let allQuotes = [];
@@ -253,14 +275,14 @@ async function deleteBlog(id) {
     if (res.ok) {
       console.log('Blog deleted successfully:', id);
       await loadBlogs();
-      alert('Blog deleted successfully!');
+      showToast('Blog deleted successfully!', 'success');
     } else {
       console.error('Delete failed with status:', res.status);
-      alert('Failed to delete blog');
+      showToast('Failed to delete blog', 'error');
     }
   } catch (err) {
     console.error('Delete fetch error:', err);
-    alert('Error deleting blog: ' + err.message);
+    showToast('Error deleting blog: ' + err.message, 'error');
   }
 }
 
@@ -287,12 +309,12 @@ function editBlog(id) {
         }
       } else {
         console.error('Blog with ID', id, 'not found');
-        alert('Blog not found');
+        showToast('Blog not found', 'error');
       }
     })
     .catch(err => {
       console.error('Failed to load blog for editing:', err);
-      alert('Error loading blog for editing');
+      showToast('Error loading blog for editing', 'error');
     });
 }
 
@@ -314,12 +336,12 @@ function previewBlog(id) {
         showPreviewModal(blog);
       } else {
         console.error('Blog with ID', id, 'not found');
-        alert('Blog not found');
+        showToast('Blog not found', 'error');
       }
     })
     .catch(err => {
       console.error('Failed to load blog for preview:', err);
-      alert('Error loading blog for preview');
+      showToast('Error loading blog for preview', 'error');
     });
 }
 
@@ -373,7 +395,7 @@ async function handleBlogSubmit(e) {
   e.preventDefault();
 
   if (!blogTitle || !blogContent || !blogCategory || !blogTags || !blogFeaturedImage || !blogFeatured) {
-    alert('Blog form elements are missing.');
+    showToast('Blog form elements are missing.', 'error');
     return;
   }
 
@@ -390,7 +412,7 @@ async function handleBlogSubmit(e) {
   const featured = blogFeatured.checked;
 
   if (!title || !content) {
-    alert('Please enter title and content');
+    showToast('Please enter title and content', 'error');
     return;
   }
 
@@ -424,14 +446,14 @@ async function handleBlogSubmit(e) {
       console.log('Blog saved:', data);
       resetForm();
       await loadBlogs();
-      alert(`Blog ${editingBlogId ? 'updated' : 'added'} successfully!`);
+      showToast(`Blog ${editingBlogId ? 'updated' : 'added'} successfully!`, 'success');
     } else {
       console.error('Failed to save blog:', data.message);
-      alert('Error saving blog: ' + (data.message || 'Unknown error'));
+      showToast('Error saving blog: ' + (data.message || 'Unknown error'), 'error');
     }
   } catch (err) {
     console.error('Form submission error:', err);
-    alert('Error: ' + err.message);
+    showToast('Error: ' + err.message, 'error');
   }
 }
 
@@ -473,7 +495,7 @@ async function handleBulkDelete() {
   const idsToDelete = Array.from(checkedBoxes).map(cb => parseInt(cb.dataset.id));
 
   if (idsToDelete.length === 0) {
-    alert('Please select blogs to delete');
+    showToast('Please select blogs to delete', 'error');
     return;
   }
 
@@ -489,10 +511,10 @@ async function handleBulkDelete() {
     await Promise.all(deletePromises);
     console.log('Bulk delete completed');
     await loadBlogs();
-    alert(`${idsToDelete.length} blog(s) deleted successfully!`);
+    showToast(`${idsToDelete.length} blog(s) deleted successfully!`, 'success');
   } catch (err) {
     console.error('Bulk delete failed:', err);
-    alert('Error deleting blogs: ' + err.message);
+    showToast('Error deleting blogs: ' + err.message, 'error');
   }
 }
 
@@ -574,28 +596,49 @@ function renderLeadsTable(quotes = allQuotes) {
 // ===== LEADS MARK READ =====
 async function markQuoteRead(index) {
   try {
-    const res = await fetch(`/api/admin/quotes/${index}/read`, { method: 'PUT' });
+    showToast('Marking lead as read...', 'info');
+const res = await fetch(`/api/admin/quotes/${index}/read`, { method: 'PUT' });
     if (res.ok) {
       await loadQuotes();
       renderLeadsTable();
+      showToast('Lead marked as read', 'success');
+    } else {
+      showToast('Failed to mark as read', 'error');
     }
   } catch (e) {
     console.error('Mark read failed:', e);
+    showToast('Error marking lead as read', 'error');
   }
 }
 
 // ===== LEADS DELETE =====
 async function deleteQuote(index) {
-  if (!confirm('Delete this lead?')) return;
+  showToast('Deleting lead...', 'info');
+  const confirmed = await new Promise(resolve => {
+    const btn = event.target;
+    const confirmDiv = document.createElement('div');
+    confirmDiv.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10000;background:#020617;color:white;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.8);border:1px solid #374151;text-align:center;max-width:300px;';
+    confirmDiv.innerHTML = `
+      <div style="margin-bottom:16px;font-weight:500;">Delete this lead?</div>
+      <button onclick="this.parentNode.parentNode.remove();resolve(true);deleteQuote(${index});" style="background:#ef4444;color:white;border:none;padding:8px 16px;border-radius:6px;margin-right:8px;cursor:pointer;">Delete</button>
+      <button onclick="this.parentNode.parentNode.remove();resolve(false);" style="background:#6b7280;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;">Cancel</button>
+    `;
+    document.body.appendChild(confirmDiv);
+  });
+  if (!confirmed) return;
 
   try {
-    const res = await fetch(`/api/admin/quotes/${index}`, { method: 'DELETE' });
+const res = await fetch(`/api/admin/quotes/${index}`, { method: 'DELETE' });
     if (res.ok) {
       await loadQuotes();
       renderLeadsTable();
+      showToast('Lead deleted', 'success');
+    } else {
+      showToast('Failed to delete lead', 'error');
     }
   } catch (e) {
     console.error('Delete failed:', e);
+    showToast('Error deleting lead', 'error');
   }
 }
 
@@ -655,9 +698,10 @@ async function saveDevtoUsername(username) {
 
     savedDevtoUsernames = await res.json();
     renderDevtoUsernameOptions();
+    showToast('Username saved', 'success');
   } catch (err) {
     console.error('Failed to save Dev.to username:', err);
-    setDevtoMessage('Unable to save username. Please try again.', true);
+    showToast('Unable to save username', 'error');
   }
 }
 
@@ -757,7 +801,7 @@ function importDevtoPost(postId) {
   const post = devtoPosts.find(p => String(p.id) === String(postId));
 
   if (!post) {
-    alert('Selected Dev.to post could not be found.');
+    showToast('Selected Dev.to post could not be found.', 'error');
     return;
   }
 
@@ -778,6 +822,7 @@ function importDevtoPost(postId) {
   if (cancelBtn) cancelBtn.classList.add('visible');
 
   if (blogForm) blogForm.scrollIntoView({ behavior: 'smooth' });
+  showToast('Dev.to post loaded to form!', 'success');
 }
 
 // ===== EVENT LISTENERS =====
@@ -815,11 +860,10 @@ function setupEventListeners() {
   saveDevtoUsernameBtn?.addEventListener('click', async () => {
     const username = (devtoUsernameInput?.value || '').trim();
     if (!username) {
-      setDevtoMessage('Enter a Dev.to username before saving.', true);
+      showToast('Enter a Dev.to username before saving.', 'error');
       return;
     }
     await saveDevtoUsername(username);
-    setDevtoMessage(`Saved ${username} for future use.`);
   });
 
   savedDevtoUsernamesSelect?.addEventListener('change', (e) => {
@@ -908,10 +952,11 @@ function escapeHtml(text) {
   const str = String(text ?? '');
   const map = {
     '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
+    '<': '<',
+    '>': '>',
+    '"': '"',
     "'": '&#039;'
   };
   return str.replace(/[&<>"']/g, m => map[m]);
 }
+
